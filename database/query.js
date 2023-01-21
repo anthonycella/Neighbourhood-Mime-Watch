@@ -2,14 +2,15 @@ const dbConnection = require('./db');
 
 const insertIntoReports = (req, res) => {
   const data = req.body;
-  console.log({ data });
+  console.log(data);
 
   const userReporting = data.username;
   const { dateCreated } = data;
   const { reportStatus } = data;
 
-  const insertionQuery = `INSERT INTO reports VALUES (${userReporting},
-   ${dateCreated}, ${reportStatus}, ${dateCreated})`;
+  const insertionQuery = `INSERT INTO reports (user_reporting, date_created, report_status, last_updated) VALUES ("${userReporting}", "${dateCreated}", "${reportStatus}", "${dateCreated}");`;
+
+  // console.log(insertionQuery);
 
   dbConnection.connect((error) => {
     if (error) {
@@ -19,8 +20,10 @@ const insertIntoReports = (req, res) => {
       dbConnection.query(insertionQuery, (errorInQuery, result) => {
         if (errorInQuery) {
           console.log('error in query: insertIntoReports');
+          console.log(errorInQuery);
           res.status(404).send();
         } else {
+          console.log('Success! Entry created in reports table');
           res.status(201).send(result);
         }
       });
