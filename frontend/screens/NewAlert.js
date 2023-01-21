@@ -21,21 +21,19 @@ function NewAlert(props) {
 
   function handleAlertGroup() {
     setError("");
-    console.log("start function")
 
     if (!group) {
-      return setError("please choose a group")
+      return setError("please choose a group");
     }
     if (!activity) {
-      return setError("cannot alert empty message")
+      return setError("cannot alert empty message");
     }
 
-    console.log("end of function")
     setAlertSent(true);
   }
 
   function handleBack() {
-    
+    setAlertSent(false);
   }
 
   return (
@@ -59,13 +57,21 @@ function NewAlert(props) {
           value={activity}
           onChangeText={setActivity}
         />
-        <Button onPress={handleAlertGroup} buttonText="alert group"/>
+        <Button
+          onPress={handleAlertGroup}
+          buttonText="alert group"
+          colour={colours.red}
+        />
         {error && <ErrorMessage text={error}/>}
       </>
       :
       <>
         <Header text={`${group} has been alerted.`}/>
-        <Button onPress={handleBack} buttonText="back"/>
+        <Button
+        onPress={handleBack}
+        buttonText="create new alert"
+        colour={colours.green}
+        />
       </>}
     </View>
   );

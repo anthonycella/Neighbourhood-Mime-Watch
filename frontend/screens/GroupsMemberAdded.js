@@ -3,6 +3,7 @@ import React from 'react';
 import Button from '../components/Button';
 import Header from '../components/Header';
 import TextInput2 from '../components/TextInput2';
+import colours from '../config/colours';
 
 export default function GroupsMemberAdded() {
   function handleBack() {
@@ -12,7 +13,11 @@ export default function GroupsMemberAdded() {
   return (
     <View style={styles.container}>
       <Header text='778 430 1822 is now able to receive text alerts for Mount Pleasant Building.' />
-      <Button onPress={handleBack} buttonText='Back to group' />
+      <Button
+        onPress={handleBack}
+        buttonText='Back to group'
+        colour={colours.green}
+      />
     </View>
   );
 }

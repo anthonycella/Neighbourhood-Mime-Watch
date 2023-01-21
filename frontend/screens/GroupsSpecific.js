@@ -4,6 +4,7 @@ import Button from '../components/Button';
 import Header from '../components/Header';
 import SmallButton from '../components/SmallButton';
 import Article from '../components/Article';
+import colours from '../config/colours';
 
 export default function GroupsSpecific(props) {
   function handleAlert() {
@@ -17,8 +18,16 @@ export default function GroupsSpecific(props) {
   return (
     <View style={styles.container}>
       <Header text='Mount Pleasant Building' />
-      <Button onPress={handleAlert} buttonText='Alert Group' />
-      <Button onPress={handleInvite} buttonText='Invite New Member' />
+      <Button
+        onPress={handleAlert}
+        buttonText='Alert Group'
+        colour={colours.red}
+      />
+      <Button
+        onPress={handleInvite}
+        buttonText='Invite New Member'
+        colour={colours.green}
+      />
       <Article
         location='London Street'
         date='01/22/2023'

@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import Button from '../components/Button';
 import TextInput2 from '../components/TextInput2';
 import Header from '../components/Header';
+import colours from '../config/colours';
 
 function LoginSignup(props) {
   const [logIn, setLogIn] = useState(false);
@@ -41,8 +42,16 @@ function LoginSignup(props) {
         <TextInput2 placeholder="name"/>
         <TextInput2 placeholder="phone number"/>
       </>}
-      <Button onPress={handleLogIn} buttonText="log in"/>
-      <Button onPress={handleSignUp} buttonText="sign up"/>
+      <Button
+        onPress={handleLogIn}
+        buttonText="log in"
+        colour={colours.green}
+      />
+      <Button
+        onPress={handleSignUp}
+        buttonText="sign up"
+        colour={colours.green}
+      />
     </View>
   );
 }
