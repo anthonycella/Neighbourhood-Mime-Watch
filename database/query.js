@@ -84,10 +84,12 @@ const insertIntoUsers = (req, res) => {
 const updateReportStatus = (req, res) => {
   const data = req.body;
 
+  const timestamp = new Date();
+
   const { reportStatus } = data;
   const { reportId } = data;
 
-  const updateQuery = `UPDATE reports SET report_status = "${reportStatus}" WHERE id=${reportId}`;
+  const updateQuery = `UPDATE reports SET report_status = "${reportStatus}", last_updated = "${timestamp}" WHERE id=${reportId}`;
 
   dbConnection.connect((error) => {
     if (error) {
