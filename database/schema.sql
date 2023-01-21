@@ -4,8 +4,8 @@ USE db;
 
 CREATE TABLE users (
   id INT NOT NULL AUTO_INCREMENT,
-  first_name varchar(255) NOT NULL,
-  last_name varchar(255) NOT NULL,
+  first_name varchar(255),
+  last_name varchar(255),
   phone_number varchar(255) NOT NULL,
 );
 
