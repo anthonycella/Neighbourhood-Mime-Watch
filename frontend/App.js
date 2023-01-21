@@ -21,14 +21,18 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={{
+          tabBarStyle: { height: 70 },
+        }}
+      >
         <Tab.Screen
-          name="Files"
-          component={Logs}
+          name="Home"
+          component={LoginSignup}
           options={{
             tabBarLabel: 'Home',
             tabBarIcon: ({ color, size }) => (
-              <Ionicons name="document-outline" color={color} size={size} />
+              <Ionicons name="document-outline" color={color} size={35} />
             ),
           }}
         />
@@ -38,7 +42,7 @@ export default function App() {
           options={{
             tabBarLabel: 'Alerts',
             tabBarIcon: ({ color, size }) => (
-              <Ionicons name="bulb-outline" color={color} size={size} />
+              <Ionicons name="bulb-outline" color={color} size={35} />
             ),
           }}
         />
@@ -46,9 +50,9 @@ export default function App() {
           name="Groups"
           component={GroupsMain}
           options={{
-            tabBarLabel: 'People',
+            tabBarLabel: 'Groups',
             tabBarIcon: ({ color, size }) => (
-              <Ionicons name="people-outline" color={color} size={size} />
+              <Ionicons name="people-outline" color={color} size={35} />
             ),
           }}
         />

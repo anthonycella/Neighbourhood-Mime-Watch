@@ -56,3 +56,11 @@ function Logs(props) {
 }
 
 export default Logs;
+
+const styles = StyleSheet.create({
+  top: {
+    display: 'flex',
+    justifyContent: 'flex-start',
+    alignItems: 'center'
+  }
+});
