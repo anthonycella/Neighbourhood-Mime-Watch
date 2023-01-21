@@ -26,7 +26,7 @@ const insertIntoJointTable = (req, res) => {
 };
 
 const getPhoneNumbersFromGroupId = (req, res) => {
-  const data = req.body;
+  const data = req.query;
   const { groupId } = data;
 
   const retrievalQuery = `SELECT phone_number FROM users_groups WHERE group_id = ${groupId};`;
@@ -50,7 +50,33 @@ const getPhoneNumbersFromGroupId = (req, res) => {
   });
 };
 
+const getUsersFromGroupId = (req, res) => {
+  const data = req.query;
+  const { groupId } = data;
+
+  const retrievalQuery = `SELECT * FROM users WHERE phone_number IN (SELECT phone_number FROM users_groups WHERE group_id = ${groupId})`;
+
+  dbConnection.connect((error) => {
+    if (error) {
+      console.log('Connection to database unsuccessful, from getUsersFromGroupId');
+      res.status(404).send();
+    } else {
+      dbConnection.query(retrievalQuery, (errorInQuery, result) => {
+        if (errorInQuery) {
+          console.log('error in query: getUsersFromGroupId');
+          console.log(errorInQuery);
+          res.status(404).send();
+        } else {
+          console.log(`Success! All users retrieved that belong to group ${groupId}`);
+          res.status(200).send(result);
+        }
+      });
+    }
+  });
+};
+
 module.exports = {
   insertIntoJointTable,
   getPhoneNumbersFromGroupId,
+  getUsersFromGroupId,
 };

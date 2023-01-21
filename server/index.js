@@ -23,6 +23,10 @@ app.put('/reports', (req, res) => {
   reportsQueries.updateReportStatus(req, res);
 });
 
+app.get('/users', (req, res) => {
+  usersGroupsJointQueries.getUsersFromGroupId(req, res);
+});
+
 app.post('/users', (req, res) => {
   usersQueries.insertIntoUsers(req, res);
 });
