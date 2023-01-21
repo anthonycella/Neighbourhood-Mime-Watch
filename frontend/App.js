@@ -9,7 +9,6 @@ import NewAlert from './screens/NewAlert';
 import GroupsMain from './screens/GroupsMain';
 import GroupsSpecific from './screens/GroupsSpecific';
 import GroupsMemberInvite from './screens/GroupsMemberInvite';
-import GroupsMemberAdded from './screens/GroupsMemberAdded';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -28,7 +27,7 @@ export default function App() {
       >
         <Tab.Screen
           name="Home"
-          component={LoginSignup}
+          component={Logs}
           options={{
             tabBarLabel: 'Home',
             tabBarIcon: ({ color, size }) => (
@@ -67,7 +66,6 @@ export default function App() {
     //   {/* <GroupsMain /> */}
     //   {/* <GroupsSpecific /> */}
     //   {/* <GroupsMemberInvite /> */}
-    //   {/* <GroupsMemberAdded /> */}
     //   {/* <Logs />
     //   <LoginSignup />
     //   <SmallButton buttonText='edit name' />

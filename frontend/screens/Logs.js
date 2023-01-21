@@ -17,6 +17,10 @@ function Logs(props) {
     setViewAlert(false);
   }
 
+  function handleStatusChange() {
+
+  }
+
   return (
     <View>
       {!viewAlert ? 
@@ -39,16 +43,21 @@ function Logs(props) {
           colour={colours.green}
           onPress={handleBack}
         />
-        <Article />
+        <Article
+          location="mp"
+          date="12/12/2022"
+          body="hahaha"
+          neighbourName="johnny b"
+        />
         <Button
           buttonText="mark resolved"
           colour={colours.green}
-          onPress={handleBack}
+          onPress={handleStatusChange}
         />
         <Button
           buttonText="mark ongoing"
           colour={colours.yellow}
-          onPress={handleBack}
+          onPress={handleStatusChange}
         />
       </>}
     </View>

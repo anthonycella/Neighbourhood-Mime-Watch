@@ -33,6 +33,8 @@ function NewAlert(props) {
   }
 
   function handleBack() {
+    setGroup("");
+    setActivity("");
     setAlertSent(false);
   }
 
