@@ -75,8 +75,34 @@ const getUsersFromGroupId = (req, res) => {
   });
 };
 
+const getGroupsFromPhoneNumber = (req, res) => {
+  const data = req.query;
+  const { phoneNumber } = data;
+
+  const retrievalQuery = `SELECT * FROM neighbourhood_watch_groups WHERE group_id IN (SELECT group_id FROM users_groups WHERE phone_number = ${phoneNumber})`;
+
+  dbConnection.connect((error) => {
+    if (error) {
+      console.log('Connection to database unsuccessful, from getUsersFromGroupId');
+      res.status(404).send();
+    } else {
+      dbConnection.query(retrievalQuery, (errorInQuery, result) => {
+        if (errorInQuery) {
+          console.log('error in query: getGroupsFromPhoneNumber');
+          console.log(errorInQuery);
+          res.status(404).send();
+        } else {
+          console.log('Success! All groups retrieved from user given');
+          res.status(200).send(result);
+        }
+      });
+    }
+  });
+}
+
 module.exports = {
   insertIntoJointTable,
   getPhoneNumbersFromGroupId,
   getUsersFromGroupId,
+  getGroupsFromPhoneNumber,
 };
