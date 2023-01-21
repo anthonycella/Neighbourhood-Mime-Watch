@@ -1,1 +1,0 @@
-const dbConnection = require('../db');

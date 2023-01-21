@@ -3,7 +3,6 @@ const path = require('path');
 
 const reportsQueries = require('../database/queries/reportsQueries');
 const usersQueries = require('../database/queries/usersQueries');
-const watchGroupsQueries = require('../database/queries/watchGroupsQueries');
 const usersGroupsJointQueries = require('../database/queries/usersGroupsJointQueries');
 
 const app = express();
