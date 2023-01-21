@@ -27,6 +27,7 @@ export default Article;
 
 const styles = StyleSheet.create({
   container: {
+    padding: 15,
     fontSize: 40,
     fontWeight: 'bold',
     width: '100%',
