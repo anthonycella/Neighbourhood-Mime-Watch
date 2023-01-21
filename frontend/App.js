@@ -17,13 +17,13 @@ import Tabs from './navigation/tabs';
 export default function App() {
   return (
     <View style={styles.container}>
-      {/* <NewAlert /> */}
+      <NewAlert />
       {/* <Logs /> */}
       {/* <LoginSignup /> */}
       {/* <SmallButton buttonText='edit name'/>
       <SmallButton buttonText='delete group'/> */}
       {/* <GroupsMain /> */}
-      <GroupsSpecific />
+      {/* <GroupsSpecific /> */}
       {/* <GroupsMemberInvite /> */}
       {/* <GroupsMemberAdded /> */}
       {/* <Logs />
