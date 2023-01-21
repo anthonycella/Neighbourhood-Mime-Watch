@@ -7,12 +7,12 @@ const insertIntoReports = (req, res) => {
   const { dateCreated } = data;
   const statusOfReport = data.reportStatus;
 
-  const insertionQuery = `INSERT INTO reports VALUES ("${userReporting}",
-   "${dateCreated}", "${statusOfReport}", "${dateCreated}")`;
+  const insertionQuery = `INSERT INTO reports VALUES (${userReporting},
+   ${dateCreated}, ${statusOfReport}, ${dateCreated})`;
 
   dbConnection.connect((error) => {
     if (error) {
-      console.log('Connection to database unsuccessful, from createNewReportInDatabase');
+      console.log('Connection to database unsuccessful, from insertIntoReports');
       res.status(404).send();
     } else {
       dbConnection.query(insertionQuery, (errorInQuery, result) => {
@@ -32,17 +32,31 @@ const insertIntoUsers = (req, res) => {
   const { phoneNumber } = data;
 
   let columns = '(phone_number';
+  let values = `(${phoneNumber}`;
 
   if (data.firstName) {
-    columns +=
+    columns += ', first_name';
+    values += `, ${data.firstName}`;
   }
 
-  const insertionQuery = `INSERT INTO users VALUES ("${userReporting}",
-   "${dateCreated}", "${statusOfReport}", "${dateCreated}")`;
+  if (data.lastName) {
+    columns += ', last_name';
+    values += `, ${data.lastName}`;
+  }
+
+  if (data.username) {
+    columns += ', username';
+    values += `, ${data.username}`;
+  }
+
+  columns += ')';
+  values += ')';
+
+  const insertionQuery = `INSERT INTO users ${columns} VALUES ${values}`;
 
   dbConnection.connect((error) => {
     if (error) {
-      console.log('Connection to database unsuccessful, from createNewReportInDatabase');
+      console.log('Connection to database unsuccessful, from insertIntoUsers');
       res.status(404).send();
     } else {
       dbConnection.query(insertionQuery, (errorInQuery, result) => {
@@ -56,4 +70,7 @@ const insertIntoUsers = (req, res) => {
   });
 };
 
-module.exports = insertIntoReports;
+module.exports = {
+  insertIntoReports,
+  insertIntoUsers,
+};
