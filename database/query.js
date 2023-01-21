@@ -2,6 +2,7 @@ const dbConnection = require('./db');
 
 const insertIntoReports = (req, res) => {
   const data = req.body;
+  console.log({ data });
 
   const userReporting = data.username;
   const { dateCreated } = data;
@@ -17,6 +18,7 @@ const insertIntoReports = (req, res) => {
     } else {
       dbConnection.query(insertionQuery, (errorInQuery, result) => {
         if (errorInQuery) {
+          console.log('error in query: insertIntoReports');
           res.status(404).send();
         } else {
           res.status(201).send(result);
@@ -61,6 +63,7 @@ const insertIntoUsers = (req, res) => {
     } else {
       dbConnection.query(insertionQuery, (errorInQuery, result) => {
         if (errorInQuery) {
+          console.log('error in query: insertIntoUsers');
           res.status(404).send();
         } else {
           res.status(201).send(result);
