@@ -1,11 +1,16 @@
 import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Button from '../components/Button';
 import Header from '../components/Header';
 import SmallButton from '../components/SmallButton';
 import colours from '../config/colours';
 
 export default function GroupsMain() {
+  
+  useEffect(() => {
+    // axios get?
+  })
+
   function handleAlert() {
 
   }

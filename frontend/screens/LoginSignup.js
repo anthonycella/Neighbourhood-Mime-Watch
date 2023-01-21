@@ -14,6 +14,9 @@ function LoginSignup(props) {
       setSignUp(false);
       return setLogIn(true);
     }
+
+    // user authentication
+    // page navigation
     setLogIn(false);
     console.log("log in clicked");
   }
@@ -23,6 +26,9 @@ function LoginSignup(props) {
       setLogIn(false);
       return setSignUp(true);
     }
+
+    // axios post
+    // page navigation
     setSignUp(false);
     console.log("sign up clicked");
   }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View } from 'react-native-web';
 import TextInput2 from '../components/TextInput2';
 import Button from '../components/Button';
@@ -13,7 +13,11 @@ function NewAlert(props) {
   const [alertSent, setAlertSent] = useState(false);
   const [error, setError] = useState("")
 
-  const groups = [
+  useEffect(() => {
+    // axios get?
+  }, [])
+
+  const sampleGroups = [
     {key: '1', value: 'Mount Pleasant'},
     {key: '2', value: '4th Street Plaza'},
     {key: '3', value: 'Broken Dreams Boulevard'}
@@ -29,6 +33,8 @@ function NewAlert(props) {
       return setError("cannot alert empty message");
     }
 
+    // axios get and post?
+    // twilio integration
     setAlertSent(true);
   }
 
@@ -45,7 +51,7 @@ function NewAlert(props) {
         <Header text="create new alert"/>
         <SelectList
           setSelected={val => setGroup(val)}
-          data={groups}
+          data={sampleGroups}
           save="value"
           label="group"
           boxStyles={{borderRadius: 0, borderTopWidth: 0, borderLeftWidth: 0, borderRightWidth: 0, borderColor: colours.lightGrey,  marginBottom: 10}}
