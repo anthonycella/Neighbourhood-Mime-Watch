@@ -46,5 +46,9 @@ app.post('/usersgroups', (req, res) => {
   usersGroupsJointQueries.insertIntoJointTable(req, res);
 });
 
+app.post('/groups', (req, res) => {
+  usersGroupsJointQueries.insertIntoGroupTable(req, res);
+});
+
 app.listen(PORT);
 console.log(`Server listening at http://localhost:${PORT}`);
