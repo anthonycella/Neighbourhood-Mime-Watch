@@ -17,5 +17,4 @@ CREATE TABLE reports (
   report_status varchar(255) NOT NULL,
   last_updated varchar(255) NOT NULL,
   PRIMARY KEY (id)
-  FOREIGN KEY (user_reporting) REFERENCES users(username)
 );
