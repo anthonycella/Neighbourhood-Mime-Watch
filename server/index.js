@@ -6,10 +6,13 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+app.use(express.urlencoded());
 // for connecting to the front-end
 // app.use(express.static(path.join(__dirname, '../CLIENTSIDE_DIRECTORY_PATH_GOES_HERE')));
 
 app.post('/reports', (req, res) => {
+  console.log('body here is');
+  console.log(req.body);
   query.insertIntoReports(req, res);
 });
 

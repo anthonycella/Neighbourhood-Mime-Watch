@@ -88,6 +88,7 @@ const updateReportStatus = (req, res) => {
     } else {
       dbConnection.query(updateQuery, (errorInQuery, result) => {
         if (errorInQuery) {
+          console.log('error in query: updateReportStatus');
           res.status(404).send();
         } else {
           res.status(200).send(result);
@@ -113,6 +114,7 @@ const updateUserData = (req, res) => {
     } else {
       dbConnection.query(updateQuery, (errorInQuery, result) => {
         if (errorInQuery) {
+          console.log('error in query: updateUserData');
           res.status(404).send();
         } else {
           res.status(200).send(result);
