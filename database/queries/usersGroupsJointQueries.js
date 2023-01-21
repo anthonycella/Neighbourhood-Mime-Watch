@@ -1,6 +1,6 @@
 const dbConnection = require('../db');
 
-const insertIntoJointTable = (req, res) => {
+const insertIntoJointTable = (req, res, callback) => {
   const data = req.body;
   const { phoneNumber, groupId } = data;
 
@@ -12,14 +12,7 @@ const insertIntoJointTable = (req, res) => {
       res.status(404).send();
     } else {
       dbConnection.query(insertionQuery, (errorInQuery, result) => {
-        if (errorInQuery) {
-          console.log('error in query: insertIntoJointTable');
-          console.log(errorInQuery);
-          res.status(404).send();
-        } else {
-          console.log('Success! Entry created in joint table');
-          res.status(201).send(result);
-        }
+        callback(errorInQuery, result);
       });
     }
   });
@@ -119,7 +112,18 @@ const insertIntoGroupTable = (req, res) => {
           res.status(404).send();
         } else {
           console.log('Success! Entry successfully loaded into the neighbourhood_watch_groups table');
-          res.status(200).send(result);
+
+          req.body.groupId = result.insertId;
+          insertIntoJointTable(req, res, (errorFromInput, resultFromJointQuery) => {
+            if (errorFromInput) {
+              console.log('error in query: insertIntoJointTable');
+              console.log(errorFromInput);
+              res.status(404).send();
+            } else {
+              console.log('Success! Entry created in joint table');
+              res.status(201).send(resultFromJointQuery);
+            }
+          });
         }
       });
     }
