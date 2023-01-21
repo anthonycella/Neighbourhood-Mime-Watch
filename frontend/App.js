@@ -6,16 +6,18 @@ import Navbar from './components/Navbar';
 import Logs from './screens/Logs';
 import NewAlert from './screens/NewAlert';
 import GroupsMain from './screens/GroupsMain';
+import GroupsSpecific from './screens/GroupsSpecific';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <NewAlert />
+      {/* <NewAlert /> */}
       {/* <Logs /> */}
       {/* <LoginSignup /> */}
       {/* <SmallButton buttonText='edit name'/>
       <SmallButton buttonText='delete group'/> */}
       {/* <GroupsMain /> */}
+      <GroupsSpecific />
       {/* <Logs />
       <LoginSignup />
       <SmallButton buttonText='edit name' />

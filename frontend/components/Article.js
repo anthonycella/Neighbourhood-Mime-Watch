@@ -7,16 +7,14 @@ function Article(props) {
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.articleTitle}>Location</Text>
-        <Text style={styles.resolveDate}>resolved on DATE_HERE</Text>
+        <Text style={styles.articleTitle}>{props.location}</Text>
+        <Text style={styles.resolveDate}>resolved on {props.date}</Text>
       </View>
       <View style={styles.marginTop}>
-        <Text>
-          Paragraph describing the incident or something. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed fermentum orci.
-        </Text>
+        <Text>{props.body}</Text>
       </View>
       <View>
-        <Text style={styles.neighborName}>Firstname Lastname</Text>
+        <Text style={styles.neighborName}>{props.neighborName}</Text>
       </View>
       <Separator />
     </View>
