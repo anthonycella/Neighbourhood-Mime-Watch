@@ -5,10 +5,10 @@ const insertIntoReports = (req, res) => {
 
   const userReporting = data.username;
   const { dateCreated } = data;
-  const statusOfReport = data.reportStatus;
+  const { reportStatus } = data;
 
   const insertionQuery = `INSERT INTO reports VALUES (${userReporting},
-   ${dateCreated}, ${statusOfReport}, ${dateCreated})`;
+   ${dateCreated}, ${reportStatus}, ${dateCreated})`;
 
   dbConnection.connect((error) => {
     if (error) {
@@ -69,6 +69,26 @@ const insertIntoUsers = (req, res) => {
     }
   });
 };
+
+const updateReportStatus = (req, res) => {
+  const data = req.body;
+
+  const { reportStatus } = data;
+  const { phoneNumber } = data;
+
+  const updateQuery = 'UPDATE reports SET '
+
+
+
+  dbConnection.connect((error) => {
+    if (error) {
+      console.log('Connection to database unsuccessful, from updateReportStatus');
+      res.status(404).send();
+    } else {
+      dbConnection.query()
+    }
+  });
+}
 
 module.exports = {
   insertIntoReports,
