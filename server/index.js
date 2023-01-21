@@ -31,6 +31,10 @@ app.put('/users', (req, res) => {
   usersQueries.updateUserData(req, res);
 });
 
+app.get('/phonenumbers', (req, res) => {
+  usersGroupsJointQueries.getPhoneNumbersFromGroupId(req, res);
+});
+
 app.post('/usersgroups', (req, res) => {
   usersGroupsJointQueries.insertIntoJointTable(req, res);
 });

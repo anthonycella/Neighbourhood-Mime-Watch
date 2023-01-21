@@ -52,4 +52,5 @@ const getPhoneNumbersFromGroupId = (req, res) => {
 
 module.exports = {
   insertIntoJointTable,
+  getPhoneNumbersFromGroupId,
 };
