@@ -29,7 +29,7 @@ const getPhoneNumbersFromGroupId = (req, res) => {
   const data = req.body;
   const { groupId } = data;
 
-  const retrievalQuery = `SELECT * FROM users_groups WHERE group_id = ${groupId};`;
+  const retrievalQuery = `SELECT phone_number FROM users_groups WHERE group_id = ${groupId};`;
 
   dbConnection.connect((error) => {
     if (error) {
