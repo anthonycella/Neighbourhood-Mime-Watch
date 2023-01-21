@@ -1,4 +1,5 @@
-import { StyleSheet, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import LoginSignup from './screens/LoginSignup';
 import Article from './components/Article';
 import SmallButton from './components/SmallButton';
@@ -10,31 +11,39 @@ import GroupsSpecific from './screens/GroupsSpecific';
 import GroupsMemberInvite from './screens/GroupsMemberInvite';
 import GroupsMemberAdded from './screens/GroupsMemberAdded';
 
-import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import Tabs from './navigation/tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <NewAlert />
-      {/* <Logs /> */}
-      {/* <LoginSignup /> */}
-      {/* <SmallButton buttonText='edit name'/>
-      <SmallButton buttonText='delete group'/> */}
-      {/* <GroupsMain /> */}
-      {/* <GroupsSpecific /> */}
-      {/* <GroupsMemberInvite /> */}
-      {/* <GroupsMemberAdded /> */}
-      {/* <Logs />
-      <LoginSignup />
-      <SmallButton buttonText='edit name' />
-      <SmallButton buttonText='delete group' /> */}
-      {/* <Navbar /> */}
-      <NavigationContainer>
-        <Tabs />
-      </NavigationContainer>
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="LoginSignupScreen" component={LoginSignup} />
+        <Tab.Screen name="GroupsMainScreen" component={GroupsMain} />
+      </Tab.Navigator>
+    </NavigationContainer>
+
+    // <View style={styles.container}>
+    //   <NewAlert />
+    //   {/* <Logs /> */}
+    //   {/* <LoginSignup /> */}
+    //   {/* <SmallButton buttonText='edit name'/>
+    //   <SmallButton buttonText='delete group'/> */}
+    //   {/* <GroupsMain /> */}
+    //   {/* <GroupsSpecific /> */}
+    //   {/* <GroupsMemberInvite /> */}
+    //   {/* <GroupsMemberAdded /> */}
+    //   {/* <Logs />
+    //   <LoginSignup />
+    //   <SmallButton buttonText='edit name' />
+    //   <SmallButton buttonText='delete group' /> */}
+    //   {/* <Navbar /> */}
+    //   <NavigationContainer>
+    //     <Tabs />
+    //   </NavigationContainer>
+    // </View>
   );
 }
 
