@@ -1,12 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import LoginSignup from './screens/LoginSignup';
+import Article from './components/Article';
 import Navbar from './components/Navbar';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <LoginSignup />
+      <Article />
       {/* <Navbar /> */}
     </View>
   );
