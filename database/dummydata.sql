@@ -1,10 +1,10 @@
 USE db;
 
-INSERT INTO users (phone_number, first_name, last_name, username) VALUES ("(919) 410-1939", "Bruce", "Wayne", "becauseahmbatman");
-INSERT INTO users (phone_number, first_name, last_name, username) VALUES ("(915) 555-0199", "Darlene", "McKinnon", "monstertruckgal87");
-INSERT INTO users (phone_number, first_name, last_name, username) VALUES ("0-188-999-881-999-119-725-3", "Maurice", "Moss", "negative1");
-INSERT INTO users (phone_number, first_name, last_name, username) VALUES ("(070) 412-9084", "Abigail", "Lytar", "uganda4life");
-INSERT INTO users (phone_number, first_name, last_name, username) VALUES ("(912) 059-9119", "Billy", "Blazes", "ready2roll");
+INSERT INTO users (phone_number, first_name, last_name, username, user_password) VALUES ("(919) 410-1939", "Bruce", "Wayne", "becauseahmbatman", "opensesame");
+INSERT INTO users (phone_number, first_name, last_name, username, user_password) VALUES ("(915) 555-0199", "Darlene", "McKinnon", "monstertruckgal87", "opensesame");
+INSERT INTO users (phone_number, first_name, last_name, username, user_password) VALUES ("0-188-999-881-999-119-725-3", "Maurice", "Moss", "negative1", "opensesame");
+INSERT INTO users (phone_number, first_name, last_name, username, user_password) VALUES ("(070) 412-9084", "Abigail", "Lytar", "uganda4life", "opensesame");
+INSERT INTO users (phone_number, first_name, last_name, username, user_password) VALUES ("(912) 059-9119", "Billy", "Blazes", "ready2roll", "opensesame");
 
 INSERT INTO reports (user_reporting, date_created, report_status, last_updated, content, group_id) VALUES ("becauseahmbatman", "Sat Jan 21 2023 14:54:28 GMT-0500 (Eastern Standard Time)", "reported", "Sat Jan 21 2023 14:54:28 GMT-0500 (Eastern Standard Time)", "There's a robin that won't leave me alone", 5);
 INSERT INTO reports (user_reporting, date_created, report_status, last_updated, content, group_id) VALUES ("monstertruckgal87", "Sat Jan 21 2023 14:54:28 GMT-0500 (Eastern Standard Time)", "resolved", "Sat Jan 21 2023 14:54:28 GMT-0500 (Eastern Standard Time)", "There's a weird creepy guy dressed in black spandex and a cape", 5);
