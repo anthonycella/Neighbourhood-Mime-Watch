@@ -1,8 +1,6 @@
 const express = require('express');
 const path = require('path');
 
-const query = require('../database/query');
-
 const reportsQueries = require('../database/queries/reportsQueries');
 const usersQueries = require('../database/queries/usersQueries');
 const watchGroupsQueries = require('../database/queries/watchGroupsQueries');
