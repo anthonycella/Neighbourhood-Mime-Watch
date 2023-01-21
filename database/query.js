@@ -37,21 +37,24 @@ const insertIntoUsers = (req, res) => {
   const { phoneNumber } = data;
 
   let columns = '(phone_number';
-  let values = `(${phoneNumber}`;
+  let values = `("${phoneNumber}"`;
 
   if (data.firstName) {
     columns += ', first_name';
-    values += `, ${data.firstName}`;
+    values += `, "${data.firstName}"`;
   }
 
   if (data.lastName) {
     columns += ', last_name';
-    values += `, ${data.lastName}`;
+    values += `, "${data.lastName}"`;
   }
 
   if (data.username) {
     columns += ', username';
-    values += `, ${data.username}`;
+    values += `, "${data.username}"`;
+  } else {
+    columns += ', username';
+    values += ', "anonymous"';
   }
 
   columns += ')';
@@ -67,8 +70,10 @@ const insertIntoUsers = (req, res) => {
       dbConnection.query(insertionQuery, (errorInQuery, result) => {
         if (errorInQuery) {
           console.log('error in query: insertIntoUsers');
+          console.log(errorInQuery);
           res.status(404).send();
         } else {
+          console.log('Success! Entry created in users table');
           res.status(201).send(result);
         }
       });
