@@ -34,6 +34,10 @@ app.put('/users', (req, res) => {
   usersQueries.updateUserData(req, res);
 });
 
+app.get('/groups', (req, res) => {
+  usersGroupsJointQueries.getGroupsFromPhoneNumber(req, res);
+});
+
 app.get('/phonenumbers', (req, res) => {
   usersGroupsJointQueries.getPhoneNumbersFromGroupId(req, res);
 });

@@ -17,6 +17,7 @@ CREATE TABLE users_groups (
 
 CREATE TABLE reports (
   id INT NOT NULL AUTO_INCREMENT,
+  content varchar(255) NOT NULL,
   user_reporting varchar(255) NOT NULL,
   date_created varchar(255) NOT NULL,
   report_status varchar(255) NOT NULL,

@@ -6,9 +6,9 @@ const insertIntoReports = (req, res) => {
 
   const userReporting = data.username;
   const dateCreated = new Date();
-  const { reportStatus } = data;
+  const { reportStatus, contentCreated } = data;
 
-  const insertionQuery = `INSERT INTO reports (user_reporting, date_created, report_status, last_updated) VALUES ("${userReporting}", "${dateCreated}", "${reportStatus}", "${dateCreated}");`;
+  const insertionQuery = `INSERT INTO reports (user_reporting, date_created, report_status, last_updated, content) VALUES ("${userReporting}", "${dateCreated}", "${reportStatus}", "${dateCreated}", "${contentCreated}");`;
 
   // console.log(insertionQuery);
 
