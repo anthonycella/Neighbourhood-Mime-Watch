@@ -1,0 +1,9 @@
+{
+  "name": "neighborhood-grime-watch",
+  "version": "1.1.0",
+  "author": "Anthony Cella",
+  "license": "UNLICENSED",
+  "scripts": {
+    "server-dev": "nodemon ./server/index.js"
+  }
+}
