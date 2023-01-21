@@ -113,7 +113,7 @@ const updateUserData = (req, res) => {
     phoneNumber, firstName, lastName, username,
   } = data;
 
-  const updateQuery = `UPDATE users SET first_name = ${firstName}, last_name = ${lastName}, username = ${username} WHERE phone_number = ${phoneNumber}`;
+  const updateQuery = `UPDATE users SET first_name = "${firstName}", last_name = "${lastName}", username = "${username}" WHERE phone_number = "${phoneNumber}"`;
 
   dbConnection.connect((error) => {
     if (error) {
@@ -123,8 +123,10 @@ const updateUserData = (req, res) => {
       dbConnection.query(updateQuery, (errorInQuery, result) => {
         if (errorInQuery) {
           console.log('error in query: updateUserData');
+          console.log(errorInQuery);
           res.status(404).send();
         } else {
+          console.log('Success! User with phone number entered successfully updated');
           res.status(200).send(result);
         }
       });
