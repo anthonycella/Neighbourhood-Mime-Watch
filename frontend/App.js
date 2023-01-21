@@ -19,14 +19,14 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      {/* <Tab.Navigator>
         <Tab.Screen name="LoginSignupScreen" component={LoginSignup} />
         <Tab.Screen name="GroupsMainScreen" component={GroupsMain} />
-      </Tab.Navigator>
+      </Tab.Navigator> */}
+      <NewAlert />
     </NavigationContainer>
 
     // <View style={styles.container}>
-    //   <NewAlert />
     //   {/* <Logs /> */}
     //   {/* <LoginSignup /> */}
     //   {/* <SmallButton buttonText='edit name'/>

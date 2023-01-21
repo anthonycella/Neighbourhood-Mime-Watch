@@ -49,6 +49,8 @@ function NewAlert(props) {
           save="value"
           label="group"
           boxStyles={{borderRadius: 0, borderTopWidth: 0, borderLeftWidth: 0, borderRightWidth: 0, borderColor: colours.lightGrey,  marginBottom: 10}}
+          fontFamily="system-ui"
+          inputStyles={{color: colours.black, fontSize: 24}}
         />
         <TextInput2
           height={300}
