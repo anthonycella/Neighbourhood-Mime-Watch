@@ -74,23 +74,54 @@ const updateReportStatus = (req, res) => {
   const data = req.body;
 
   const { reportStatus } = data;
-  const { phoneNumber } = data;
+  const { reportId } = data;
 
-  const updateQuery = 'UPDATE reports SET '
-
-
+  const updateQuery = `UPDATE reports SET reportStatus = ${reportStatus} WHERE id=${reportId}`;
 
   dbConnection.connect((error) => {
     if (error) {
       console.log('Connection to database unsuccessful, from updateReportStatus');
       res.status(404).send();
     } else {
-      dbConnection.query()
+      dbConnection.query(updateQuery, (errorInQuery, result) => {
+        if (errorInQuery) {
+          res.status(404).send();
+        } else {
+          res.status(200).send(result);
+        }
+      });
     }
   });
-}
+};
+
+const updateUserData = (req, res) => {
+  const data = req.body;
+
+  const {
+    phoneNumber, firstName, lastName, username,
+  } = data;
+
+  const updateQuery = `UPDATE users SET first_name = ${firstName}, last_name = ${lastName}, username = ${username} WHERE phone_number = ${phoneNumber}`;
+
+  dbConnection.connect((error) => {
+    if (error) {
+      console.log('Connection to database unsuccessful, from updateUserData');
+      res.status(404).send();
+    } else {
+      dbConnection.query(updateQuery, (errorInQuery, result) => {
+        if (errorInQuery) {
+          res.status(404).send();
+        } else {
+          res.status(200).send(result);
+        }
+      });
+    }
+  });
+};
 
 module.exports = {
   insertIntoReports,
   insertIntoUsers,
+  updateReportStatus,
+  updateUserData,
 };
