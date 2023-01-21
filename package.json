@@ -4,7 +4,7 @@
   "author": "Anthony Cella",
   "license": "UNLICENSED",
   "scripts": {
-    "server-dev": "nodemon ./server/index.js"
+    "server-dev": "npx nodemon --watch server server/index.js"
   },
   "dependencies": {
     "axios": "^1.2.3",
