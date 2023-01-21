@@ -25,6 +25,31 @@ const insertIntoJointTable = (req, res) => {
   });
 };
 
+const getPhoneNumbersFromGroupId = (req, res) => {
+  const data = req.body;
+  const { groupId } = data;
+
+  const retrievalQuery = `SELECT * FROM users_groups WHERE group_id = ${groupId};`;
+
+  dbConnection.connect((error) => {
+    if (error) {
+      console.log('Connection to database unsuccessful, from getPhoneNumbersFromGroupId');
+      res.status(404).send();
+    } else {
+      dbConnection.query(retrievalQuery, (errorInQuery, result) => {
+        if (errorInQuery) {
+          console.log('error in query: getPhoneNumbersFromGroupId');
+          console.log(errorInQuery);
+          res.status(404).send();
+        } else {
+          console.log('Success! phone numbers retrieved from joint table');
+          res.status(200).send(result);
+        }
+      });
+    }
+  });
+};
+
 module.exports = {
   insertIntoJointTable,
 };
