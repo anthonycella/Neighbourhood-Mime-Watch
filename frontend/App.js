@@ -1,13 +1,17 @@
 import { StyleSheet, View } from 'react-native';
 import LoginSignup from './screens/LoginSignup';
+import Article from './components/Article';
+import SmallButton from './components/SmallButton';
 import Navbar from './components/Navbar';
 import Logs from './screens/Logs';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      {/* <LoginSignup /> */}
       <Logs />
+      {/* <LoginSignup /> */}
+      {/* <SmallButton buttonText='edit name'/>
+      <SmallButton buttonText='delete group'/> */}
       {/* <Navbar /> */}
     </View>
   );
