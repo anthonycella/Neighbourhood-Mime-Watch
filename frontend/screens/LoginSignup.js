@@ -27,24 +27,33 @@ function LoginSignup(props) {
   }
 
   return (
-    <View>
-      <Header text="neighbourhood grime watch"/>
+    <View style={styles.center}>
+      <Header text="neighbourhood grime watch" />
       {logIn &&
-      <>
-        <TextInput2 placeholder="email"/>
-        <TextInput2 placeholder="password"/>
-      </>}
+        <>
+          <TextInput2 placeholder="email" />
+          <TextInput2 placeholder="password" />
+        </>}
       {signUp &&
-      <>
-        <TextInput2 placeholder="email"/>
-        <TextInput2 placeholder="password"/>
-        <TextInput2 placeholder="name"/>
-        <TextInput2 placeholder="phone number"/>
-      </>}
-      <Button onPress={handleLogIn} buttonText="log in"/>
-      <Button onPress={handleSignUp} buttonText="sign up"/>
+        <>
+          <TextInput2 placeholder="email" />
+          <TextInput2 placeholder="password" />
+          <TextInput2 placeholder="name" />
+          <TextInput2 placeholder="phone number" />
+        </>}
+      <View>
+        <Button onPress={handleLogIn} buttonText="log in" />
+        <Button onPress={handleSignUp} buttonText="sign up" />
+      </View>
     </View>
   );
 }
 
 export default LoginSignup;
+
+const styles = StyleSheet.create({
+  center: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+});

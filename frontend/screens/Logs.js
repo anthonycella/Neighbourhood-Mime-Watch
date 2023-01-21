@@ -10,8 +10,8 @@ function Logs(props) {
     <View>
       <View style={styles.top}>
         <Header text="past alerts" />
-        <Button buttonText="alert group"/>
-        <Button buttonText="create new group"/>
+        <Button buttonText="alert group" />
+        <Button buttonText="create new group" />
       </View>
       <Article />
     </View>
@@ -23,6 +23,7 @@ export default Logs;
 const styles = StyleSheet.create({
   top: {
     display: 'flex',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
+    alignItems: 'center'
   }
 });

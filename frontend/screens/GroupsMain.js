@@ -30,7 +30,8 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent:'flex-start',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
   flex: {
     display: 'flex',
