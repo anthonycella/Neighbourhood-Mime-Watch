@@ -87,7 +87,7 @@ const updateReportStatus = (req, res) => {
   const { reportStatus } = data;
   const { reportId } = data;
 
-  const updateQuery = `UPDATE reports SET reportStatus = ${reportStatus} WHERE id=${reportId}`;
+  const updateQuery = `UPDATE reports SET report_status = "${reportStatus}" WHERE id=${reportId}`;
 
   dbConnection.connect((error) => {
     if (error) {
@@ -97,8 +97,10 @@ const updateReportStatus = (req, res) => {
       dbConnection.query(updateQuery, (errorInQuery, result) => {
         if (errorInQuery) {
           console.log('error in query: updateReportStatus');
+          console.log(errorInQuery);
           res.status(404).send();
         } else {
+          console.log(`Success! report with id ${reportId} successfully updated to ${reportStatus}`);
           res.status(200).send(result);
         }
       });
