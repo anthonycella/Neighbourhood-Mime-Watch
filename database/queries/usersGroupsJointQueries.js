@@ -23,3 +23,7 @@ const insertIntoJointTable = (req, res) => {
     }
   });
 };
+
+module.exports = {
+  insertIntoJointTable,
+};

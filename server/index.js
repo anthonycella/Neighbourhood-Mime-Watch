@@ -4,6 +4,7 @@ const path = require('path');
 const reportsQueries = require('../database/queries/reportsQueries');
 const usersQueries = require('../database/queries/usersQueries');
 const watchGroupsQueries = require('../database/queries/watchGroupsQueries');
+const usersGroupsJointQueries = require('../databse/queries/usersGroupsJointQueries');
 
 const app = express();
 const PORT = 3000;
@@ -28,6 +29,10 @@ app.post('/users', (req, res) => {
 
 app.put('/users', (req, res) => {
   usersQueries.updateUserData(req, res);
+});
+
+app.post('/usersgroups', (req, res) => {
+  usersGroupsJointQueries.insertIntoJointTable(req, res);
 });
 
 app.listen(PORT);
