@@ -10,8 +10,8 @@ function Logs(props) {
     <View>
       <View style={styles.top}>
         <Header text="past alerts" />
-        <Button buttonText="Alert group"/>
-        <Button buttonText="Create new group"/>
+        <Button buttonText="alert group"/>
+        <Button buttonText="create new group"/>
       </View>
       <Article />
     </View>
