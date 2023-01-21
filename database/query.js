@@ -1,6 +1,6 @@
 const dbConnection = require('./db');
 
-const createNewReportInDatabase = (req, res) => {
+const insertIntoReports = (req, res) => {
   const data = req.body;
 
   const userReporting = data.username;
@@ -26,4 +26,4 @@ const createNewReportInDatabase = (req, res) => {
   });
 };
 
-module.exports = createNewReportInDatabase;
+module.exports = insertIntoReports;
