@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import Button from '../components/Button';
 import Article from '../components/Article';
@@ -9,11 +9,21 @@ function Logs(props) {
   // this is a boolean for now but will change to empty object once backend is done
   const [viewAlert, setViewAlert] = useState(false);
 
+  useEffect(() => {
+    // axios get request
+  }, [])
+
   function handleViewAlert() {
+    //
     setViewAlert(true);
   }
 
   function handleBack() {
+    setViewAlert(false);
+  }
+
+  function handleStatusChange() {
+    // axios put request
     setViewAlert(false);
   }
 
@@ -39,16 +49,21 @@ function Logs(props) {
           colour={colours.green}
           onPress={handleBack}
         />
-        <Article />
+        <Article
+          location="mp"
+          date="12/12/2022"
+          body="hahaha"
+          neighbourName="johnny b"
+        />
         <Button
           buttonText="mark resolved"
           colour={colours.green}
-          onPress={handleBack}
+          onPress={handleStatusChange}
         />
         <Button
           buttonText="mark ongoing"
           colour={colours.yellow}
-          onPress={handleBack}
+          onPress={handleStatusChange}
         />
       </>}
     </View>

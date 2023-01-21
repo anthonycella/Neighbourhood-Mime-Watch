@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Button from '../components/Button';
 import Header from '../components/Header';
 import SmallButton from '../components/SmallButton';
@@ -7,6 +7,11 @@ import Article from '../components/Article';
 import colours from '../config/colours';
 
 export default function GroupsSpecific(props) {
+
+  useEffect(() => {
+    // axios get
+  }, [])
+
   function handleAlert() {
 
   }
