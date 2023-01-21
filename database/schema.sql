@@ -12,7 +12,7 @@ CREATE TABLE users (
 
 CREATE TABLE reports (
   id INT NOT NULL AUTO_INCREMENT,
-  user_reporting INT NOT NULL,
+  user_reporting varchar(255) NOT NULL,
   date_created varchar(255) NOT NULL,
   status_of_report varchar(255) NOT NULL,
   last_updated varchar(255) NOT NULL,
