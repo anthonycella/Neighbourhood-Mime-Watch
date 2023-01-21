@@ -4,30 +4,47 @@ import Button from '../components/Button';
 import Header from '../components/Header';
 import TextInput2 from '../components/TextInput2';
 import colours from '../config/colours';
+import ErrorMessage from '../components/ErrorMessage';
 
 export default function GroupsMemberInvite(props) {
+  const [phoneNumber, setPhoneNumber] = useState("")
   const [inviteSent, setInviteSent] = useState(false);
+  const [error, setError] = useState("")
 
   function handleInvite() {
+    if (!phoneNumber) {
+      return setError("please enter a phone number");
+    }
+
     // axios post request
     // twilio integration
+    setInviteSent(true);
+  }
+
+  function handleBack() {
+    // navigation
   }
 
   return (
     <View>
-      {inviteSent ?
+      {!inviteSent ?
       <View style={styles.sendInvite}>
         <Header text='Mount Pleasant Building' />
-        <TextInput2 placeholder="phone number" />
+        <TextInput2
+          laceholder="phone number"
+          value={phoneNumber}
+          onChangeText={setPhoneNumber}
+        />
         <Button
           onPress={handleInvite}
           buttonText='invite new member'
           colour={colours.green}
         />
+        <ErrorMessage text={error}/>
       </View>
       :
       <View style={styles.inviteSent}>
-        <Header text='778 430 1822 is now able to receive text alerts for Mount Pleasant Building.' />
+        <Header text={`${phoneNumber} is now able to receive text alerts for Mount Pleasant Building.`} />
         <Button
           onPress={handleBack}
           buttonText='Back to group'

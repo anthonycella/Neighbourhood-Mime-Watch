@@ -47,7 +47,7 @@ export default function App() {
         />
         <Tab.Screen
           name="Groups"
-          component={GroupsMain}
+          component={GroupsMemberInvite}
           options={{
             tabBarLabel: 'Groups',
             tabBarIcon: ({ color, size }) => (
