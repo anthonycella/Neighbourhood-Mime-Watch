@@ -4,7 +4,7 @@ const path = require('path');
 const reportsQueries = require('../database/queries/reportsQueries');
 const usersQueries = require('../database/queries/usersQueries');
 const watchGroupsQueries = require('../database/queries/watchGroupsQueries');
-const usersGroupsJointQueries = require('../databse/queries/usersGroupsJointQueries');
+const usersGroupsJointQueries = require('../database/queries/usersGroupsJointQueries');
 
 const app = express();
 const PORT = 3000;

@@ -17,6 +17,7 @@ const insertIntoJointTable = (req, res) => {
           console.log(errorInQuery);
           res.status(404).send();
         } else {
+          console.log('Success! Entry created in joint table');
           res.status(201).send(result);
         }
       });
