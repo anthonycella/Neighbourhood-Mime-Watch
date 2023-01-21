@@ -13,6 +13,8 @@ import GroupsMemberAdded from './screens/GroupsMemberAdded';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,8 +22,36 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="LoginSignupScreen" component={LoginSignup} />
-        <Tab.Screen name="GroupsMainScreen" component={GroupsMain} />
+        <Tab.Screen
+          name="Files"
+          component={LoginSignup}
+          options={{
+            tabBarLabel: 'Home',
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="document-outline" color={color} size={size} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Alerts"
+          component={GroupsMain}
+          options={{
+            tabBarLabel: 'Alerts',
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="bulb-outline" color={color} size={size} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Groups"
+          component={Logs}
+          options={{
+            tabBarLabel: 'People',
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="people-outline" color={color} size={size} />
+            ),
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
 
@@ -49,10 +79,10 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    // backgroundColor: '#fff',
-    // alignItems: 'center',
-    // justifyContent: 'flex-start',
-    // margin: 40,
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    margin: 40,
   },
 });
