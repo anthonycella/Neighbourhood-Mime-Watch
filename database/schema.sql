@@ -3,11 +3,11 @@ CREATE DATABASE db;
 USE db;
 
 CREATE TABLE users (
-  id INT NOT NULL AUTO_INCREMENT,
   username varchar(255),
   first_name varchar(255),
   last_name varchar(255),
   phone_number varchar(255) NOT NULL,
+  PRIMARY KEY (phone_number)
 );
 
 CREATE TABLE reports (
