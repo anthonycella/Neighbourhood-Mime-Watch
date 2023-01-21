@@ -1,4 +1,5 @@
 const dbConnection = require('../db');
+const { insertIntoJointTable } = require('./usersGroupsJointQueries');
 
 const insertIntoUsers = (req, res) => {
   const data = req.body;
@@ -43,7 +44,16 @@ const insertIntoUsers = (req, res) => {
           res.status(404).send();
         } else {
           console.log('Success! Entry created in users table');
-          res.status(201).send(result);
+          insertIntoJointTable(req, res, (errorFromInput, resultFromJointQuery) => {
+            if (errorFromInput) {
+              console.log('error in query: insertIntoJointTable');
+              console.log(errorFromInput);
+              res.status(404).send();
+            } else {
+              console.log('Success! Entry created in joint table');
+              res.status(201).send(resultFromJointQuery);
+            }
+          });
         }
       });
     }
