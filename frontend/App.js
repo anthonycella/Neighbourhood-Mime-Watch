@@ -7,6 +7,7 @@ import Logs from './screens/Logs';
 import NewAlert from './screens/NewAlert';
 import GroupsMain from './screens/GroupsMain';
 import GroupsSpecific from './screens/GroupsSpecific';
+import GroupsMemberInvite from './screens/GroupsMemberInvite';
 
 export default function App() {
   return (
@@ -17,7 +18,8 @@ export default function App() {
       {/* <SmallButton buttonText='edit name'/>
       <SmallButton buttonText='delete group'/> */}
       {/* <GroupsMain /> */}
-      <GroupsSpecific />
+      {/* <GroupsSpecific /> */}
+      <GroupsMemberInvite />
       {/* <Logs />
       <LoginSignup />
       <SmallButton buttonText='edit name' />
