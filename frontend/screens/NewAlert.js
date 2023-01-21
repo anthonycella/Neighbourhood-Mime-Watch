@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Text } from 'react-native-web';
+import { View } from 'react-native-web';
 import TextInput2 from '../components/TextInput2';
 import Button from '../components/Button';
 import Header from '../components/Header';
 import ErrorMessage from '../components/ErrorMessage'
+import { SelectList } from 'react-native-dropdown-select-list'
+import colours from '../config/colours';
 
 function NewAlert(props) {
   const [group, setGroup] = useState("");
   const [activity, setActivity] = useState("");
   const [alertSent, setAlertSent] = useState(false);
   const [error, setError] = useState("")
+
+  const groups = [
+    {key: '1', value: 'Mount Pleasant'},
+    {key: '2', value: '4th Street Plaza'},
+    {key: '3', value: 'Broken Dreams Boulevard'}
+  ]
 
   function handleAlertGroup() {
     setError("");
@@ -35,10 +43,12 @@ function NewAlert(props) {
       {!alertSent ?
       <>
         <Header text="create new alert"/>
-        <TextInput2
-          placeholder="group"
-          value={group}
-          onChangeText={setGroup}
+        <SelectList
+          setSelected={val => setGroup(val)}
+          data={groups}
+          save="value"
+          label="group"
+          boxStyles={{borderRadius: 0, borderTopWidth: 0, borderLeftWidth: 0, borderRightWidth: 0, borderColor: colours.lightGrey,  marginBottom: 10}}
         />
         <TextInput2
           height={300}
