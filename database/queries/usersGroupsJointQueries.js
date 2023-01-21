@@ -47,7 +47,7 @@ const getUsersFromGroupId = (req, res) => {
   const data = req.query;
   const { groupId } = data;
 
-  const retrievalQuery = `SELECT * FROM users WHERE phone_number IN (SELECT phone_number FROM users_groups WHERE group_id = ${groupId})`;
+  const retrievalQuery = `SELECT (username, first_name, last_name, phone_number) FROM users WHERE phone_number IN (SELECT phone_number FROM users_groups WHERE group_id = ${groupId})`;
 
   dbConnection.connect((error) => {
     if (error) {

@@ -19,6 +19,11 @@ const insertIntoUsers = (req, res) => {
     values += `, "${data.lastName}"`;
   }
 
+  if (data.password) {
+    columns += ', password';
+    values += `, "${data.password}"`;
+  }
+
   if (data.username) {
     columns += ', username';
     values += `, "${data.username}"`;
@@ -64,10 +69,10 @@ const updateUserData = (req, res) => {
   const data = req.body;
 
   const {
-    phoneNumber, firstName, lastName, username,
+    phoneNumber, firstName, lastName, username, password,
   } = data;
 
-  const updateQuery = `UPDATE users SET first_name = "${firstName}", last_name = "${lastName}", username = "${username}" WHERE phone_number = "${phoneNumber}"`;
+  const updateQuery = `UPDATE users SET first_name = "${firstName}", last_name = "${lastName}", username = "${username}", user_password = "${password} WHERE phone_number = "${phoneNumber}"`;
 
   dbConnection.connect((error) => {
     if (error) {
