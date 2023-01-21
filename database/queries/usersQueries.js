@@ -20,7 +20,7 @@ const insertIntoUsers = (req, res) => {
   }
 
   if (data.password) {
-    columns += ', password';
+    columns += ', user_password';
     values += `, "${data.password}"`;
   }
 
