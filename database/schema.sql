@@ -27,9 +27,9 @@ CREATE TABLE reports (
 );
 
 CREATE TABLE neighbourhood_watch_groups (
-  id INT NOT NULL AUTO_INCREMENT,
+  group_id INT NOT NULL AUTO_INCREMENT,
   group_name varchar(255) NOT NULL,
   date_created varchar(255) NOT NULL,
-  PRIMARY KEY (id)
+  PRIMARY KEY (group_id)
 );
 

@@ -31,3 +31,10 @@ INSERT INTO users_groups VALUES ("(912) 059-9119", 2);
 INSERT INTO users_groups VALUES ("0 188 999 881 999 119 725 3", 2);
 
 INSERT INTO users_groups VALUES ("(919) 410-1939", 1);
+
+
+INSERT INTO neighbourhood_watch_groups (group_name, date_created) VALUES ("Bat Cave Manor", "Sat Jan 21 2023 14:54:28 GMT-0500 (Eastern Standard Time)");
+INSERT INTO neighbourhood_watch_groups (group_name, date_created) VALUES ("Stony Hill", "Sat Jan 21 2023 14:54:28 GMT-0500 (Eastern Standard Time)");
+INSERT INTO neighbourhood_watch_groups (group_name, date_created) VALUES ("Longleaf Apartments", "Sat Jan 21 2023 14:54:28 GMT-0500 (Eastern Standard Time)");
+INSERT INTO neighbourhood_watch_groups (group_name, date_created) VALUES ("4th Street Plaza", "Sat Jan 21 2023 14:54:28 GMT-0500 (Eastern Standard Time)");
+INSERT INTO neighbourhood_watch_groups (group_name, date_created) VALUES ("Mount Pleasant Building", "Sat Jan 21 2023 14:54:28 GMT-0500 (Eastern Standard Time)");
