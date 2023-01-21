@@ -79,7 +79,7 @@ const getGroupsFromPhoneNumber = (req, res) => {
   const data = req.query;
   const { phoneNumber } = data;
 
-  const retrievalQuery = `SELECT * FROM neighbourhood_watch_groups WHERE group_id IN (SELECT group_id FROM users_groups WHERE phone_number = ${phoneNumber})`;
+  const retrievalQuery = `SELECT * FROM neighbourhood_watch_groups WHERE group_id IN (SELECT group_id FROM users_groups WHERE phone_number = "${phoneNumber}")`;
 
   dbConnection.connect((error) => {
     if (error) {
