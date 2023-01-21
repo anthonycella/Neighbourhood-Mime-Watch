@@ -100,6 +100,32 @@ const getGroupsFromPhoneNumber = (req, res) => {
   });
 };
 
+const insertIntoGroupTable = (req, res) => {
+  const data = req.body;
+
+  const { groupName, dateCreated } = data;
+
+  const insertionQuery = `INSERT INTO neighbourhood_watch_groups (group_name, date_created) VALUES ("${groupName}", "${dateCreated}")`;
+
+  dbConnection.connect((error) => {
+    if (error) {
+      console.log('Connection to database unsuccessful, from insertIntoGroupTable');
+      res.status(404).send();
+    } else {
+      dbConnection.query(insertionQuery, (errorInQuery, result) => {
+        if (errorInQuery) {
+          console.log('error in query: insertIntoGroupTable');
+          console.log(errorInQuery);
+          res.status(404).send();
+        } else {
+          console.log('Success! Entry successfully loaded into the neighbourhood_watch_groups table');
+          res.status(200).send(result);
+        }
+      });
+    }
+  });
+};
+
 module.exports = {
   insertIntoJointTable,
   getPhoneNumbersFromGroupId,
