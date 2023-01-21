@@ -98,7 +98,7 @@ const getGroupsFromPhoneNumber = (req, res) => {
       });
     }
   });
-}
+};
 
 module.exports = {
   insertIntoJointTable,
