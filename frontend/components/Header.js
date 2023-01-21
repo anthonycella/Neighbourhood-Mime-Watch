@@ -13,6 +13,8 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
     fontSize: 40,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    margin: 10,
+    marginBottom: 20
   }
 });
