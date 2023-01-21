@@ -4,7 +4,7 @@ import Button from '../components/Button';
 import Header from '../components/Header';
 import TextInput2 from '../components/TextInput2';
 
-export default function GroupsMemberInvite() {
+export default function GroupsMemberInvite(props) {
   function handleInvite() {
 
   }
