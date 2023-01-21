@@ -22,6 +22,7 @@ CREATE TABLE reports (
   date_created varchar(255) NOT NULL,
   report_status varchar(255) NOT NULL,
   last_updated varchar(255) NOT NULL,
+  group_id int NOT NULL,
   PRIMARY KEY (id)
 );
 
