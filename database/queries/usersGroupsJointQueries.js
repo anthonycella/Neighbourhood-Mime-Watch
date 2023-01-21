@@ -131,4 +131,5 @@ module.exports = {
   getPhoneNumbersFromGroupId,
   getUsersFromGroupId,
   getGroupsFromPhoneNumber,
+  insertIntoGroupTable,
 };
