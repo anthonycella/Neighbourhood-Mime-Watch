@@ -3,13 +3,12 @@ import { SafeAreaView, StyleSheet, TextInput } from 'react-native';
 
 function TextInput2(props) {
   const [text, onChangeText] = React.useState('');
-  const [number, onChangeNumber] = React.useState('');
 
   return (
     <SafeAreaView>
       <TextInput
         style={styles.input}
-        onChangeText={onChangeNumber}
+        onChangeText={onChangeText}
         value={text}
         placeholder={props.placeholder}
       />
