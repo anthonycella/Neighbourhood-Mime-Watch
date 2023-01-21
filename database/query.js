@@ -2,10 +2,10 @@ const dbConnection = require('./db');
 
 const insertIntoReports = (req, res) => {
   const data = req.body;
-  console.log(data);
+  // console.log(data);
 
   const userReporting = data.username;
-  const { dateCreated } = data;
+  const dateCreated = new Date();
   const { reportStatus } = data;
 
   const insertionQuery = `INSERT INTO reports (user_reporting, date_created, report_status, last_updated) VALUES ("${userReporting}", "${dateCreated}", "${reportStatus}", "${dateCreated}");`;
