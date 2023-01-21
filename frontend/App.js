@@ -10,15 +10,24 @@ import GroupsMain from './screens/GroupsMain';
 import GroupsSpecific from './screens/GroupsSpecific';
 import GroupsMemberInvite from './screens/GroupsMemberInvite';
 
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 
 const Tab = createBottomTabNavigator();
 
+// const tabBarBgColor = {
+//   ...DefaultTheme,
+//   colors: {
+//     ...DefaultTheme.colors,
+//     background: 'orange'
+//   },
+// };
+
 export default function App() {
   return (
+    // <NavigationContainer theme={tabBarBgColor}>
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={{
