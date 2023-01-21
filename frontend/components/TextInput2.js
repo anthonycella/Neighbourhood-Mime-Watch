@@ -1,10 +1,8 @@
 import React from 'react';
-import { useState } from 'react';
 import { SafeAreaView, StyleSheet, TextInput } from 'react-native';
 import colours from '../config/colours';
 
 function TextInput2(props) {
-  const [text, onChangeText] = useState('');
 
   const styles = StyleSheet.create({
     input: {
@@ -25,8 +23,8 @@ function TextInput2(props) {
     <SafeAreaView>
       <TextInput
         style={styles.input}
-        onChangeText={onChangeText}
-        value={text}
+        onChangeText={props.onChangeText}
+        value={props.value}
         placeholder={props.placeholder}
         placeholderTextColor={colours.lightGrey}
         multiline={props.multiline ? props.multiline : null}
