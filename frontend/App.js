@@ -10,6 +10,10 @@ import GroupsSpecific from './screens/GroupsSpecific';
 import GroupsMemberInvite from './screens/GroupsMemberInvite';
 import GroupsMemberAdded from './screens/GroupsMemberAdded';
 
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import Tabs from './navigation/tabs';
+
 export default function App() {
   return (
     <View style={styles.container}>
@@ -27,16 +31,19 @@ export default function App() {
       <SmallButton buttonText='edit name' />
       <SmallButton buttonText='delete group' /> */}
       {/* <Navbar /> */}
+      <NavigationContainer>
+        <Tabs />
+      </NavigationContainer>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    margin: 40,
+    // flex: 1,
+    // backgroundColor: '#fff',
+    // alignItems: 'center',
+    // justifyContent: 'flex-start',
+    // margin: 40,
   },
 });
