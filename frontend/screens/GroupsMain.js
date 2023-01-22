@@ -70,8 +70,6 @@ export default function GroupsMain() {
           redFunction={handleCancelCreateGroup}
         />
       </>}
-      {/* {error &&
-      <Error text={error}/>} */}
 
       <Header text='Mount Pleasant Building' />
 
@@ -86,8 +84,6 @@ export default function GroupsMain() {
           redFunction={() => setEditGroupName(false)}
         />
       </> : null}
-      {/* {(error && editGroupName) &&
-      <Error text={error}/>} */}
 
       {(!deleteGroup && !editGroupName) ?
       <View style={styles.flex}>
