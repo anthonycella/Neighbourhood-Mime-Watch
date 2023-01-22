@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-web';
@@ -11,13 +10,7 @@ function Logs() {
   const [viewAlert, setViewAlert] = useState({});
 
   useEffect(() => {
-    // axios.get({
-    //   method: 'GET',
-    //   url: `http://localhost:8000/reports/`,
-    //   params: {
-    //     groupId: 
-    //   },
-    // })
+    // axios get request
   }, []);
 
   function handleViewAlert(log) {

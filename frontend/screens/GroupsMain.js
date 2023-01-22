@@ -1,5 +1,6 @@
 import { StyleSheet, View } from 'react-native';
 import axios from 'axios';
+import { ScrollView } from 'react-native-web';
 import React, { useEffect, useState } from 'react';
 import Button from '../components/Button';
 import Header from '../components/Header';
@@ -39,8 +40,15 @@ export default function GroupsMain() {
     }
     setGroupName('');
     setError('');
-    // axios post
-    setCreateGroup(false);
+    axios({
+      method: 'POST',
+      url: 'http://localhost:8000/groups/',
+      data: {
+        groupName,
+        dateCreated: new Date(),
+      },
+    });
+    return setCreateGroup(false);
   }
 
   function handleEditGroupName(group) {
@@ -62,8 +70,7 @@ export default function GroupsMain() {
       setDeleteGroup(true);
       return setGroupName(group);
     }
-    // axios delete
-    setGroupName("");
+    setGroupName('');
     setDeleteGroup(false);
   }
 
@@ -116,7 +123,7 @@ export default function GroupsMain() {
   })
 
   return (
-    <View>
+    <ScrollView>
       <View>
         <Header text='your groups' />
         {!createGroup ? 
@@ -138,7 +145,7 @@ export default function GroupsMain() {
         </>}
       </View>
       {groupList}
-    </View>
+    </ScrollView>
   );
 }
 

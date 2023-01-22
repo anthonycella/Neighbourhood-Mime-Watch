@@ -6,6 +6,8 @@ import colours from '../config/colours';
 const Separator = () => <View style={styles.separator} />;
 
 function Article(props) {
+  console.log(props.log)
+
   return (
     <TouchableOpacity style={styles.container} onPress={props.onPress}>
       <View>
