@@ -44,7 +44,7 @@ export default function App() {
           options={{
             tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
-              <Ionicons name="document" color={color} size={35} />
+              <Ionicons name="newspaper" color={color} size={35} />
             ),
           }}
         />
