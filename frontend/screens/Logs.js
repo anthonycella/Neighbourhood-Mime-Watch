@@ -11,10 +11,13 @@ function Logs() {
   const [viewAlert, setViewAlert] = useState({});
 
   useEffect(() => {
-    axios.get('/reports')
-      .then((data) => {
-        
-      })
+    // axios.get({
+    //   method: 'GET',
+    //   url: `http://localhost:8000/reports/`,
+    //   params: {
+    //     groupId: 
+    //   },
+    // })
   }, []);
 
   function handleViewAlert(log) {
