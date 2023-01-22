@@ -55,18 +55,36 @@ app.post('/groups', (req, res) => {
 app.post('/twilio', (req, res) => {
   const data = req.body;
   console.log(data);
-  const { phoneNumber, alert } = data;
+  const { alert } = data;
 
-  twilio.sendMessage(phoneNumber, alert, (error, result) => {
-    if (error) {
-      console.log(`Error, twilio failed to send message to ${phoneNumber}`);
-      console.log(error);
-      res.status(404).send();
-    } else {
-      console.log(`Success! Twillio successfully sent message to ${phoneNumber}`);
-      res.status(200).send(result);
-    }
-  });
+  if (data.phoneNumbers) {
+    const { phoneNumbers } = data;
+
+    phoneNumbers.forEach((phoneNumber) => {
+      twilio.sendMessage(phoneNumber, alert, (error, result) => {
+        if (error) {
+          console.log(`Error, twilio failed to send message to ${phoneNumber}`);
+          console.log(error);
+          res.status(404).send();
+        } else {
+          console.log(`Success! Twillio successfully sent message to ${phoneNumber}`);
+          res.status(200).send(result);
+        }
+      });
+    });
+  } else {
+    const { phoneNumber } = data;
+    twilio.sendMessage(phoneNumber, alert, (error, result) => {
+      if (error) {
+        console.log(`Error, twilio failed to send message to ${phoneNumber}`);
+        console.log(error);
+        res.status(404).send();
+      } else {
+        console.log(`Success! Twillio successfully sent message to ${phoneNumber}`);
+        res.status(200).send(result);
+      }
+    });
+  }
 });
 
 app.listen(PORT);
