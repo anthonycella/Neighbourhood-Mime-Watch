@@ -34,15 +34,17 @@ export default function App() {
           tabBarStyle: { height: 70 },
           tabBarActiveBackgroundColor:'#A3BD7C',
           tabBarInactiveBackgroundColor:'#9BB574',
+          tabBarActiveTintColor:'#D66363',
+          tabBarInactiveTintColor:'#E2E2E2',
         }}
       >
         <Tab.Screen
           name="Home"
           component={Logs}
           options={{
-            tabBarLabel: 'Home',
+            tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
-              <Ionicons name="document-outline" color={color} size={35} />
+              <Ionicons name="document" color={color} size={35} />
             ),
           }}
         />
@@ -50,9 +52,9 @@ export default function App() {
           name="Alerts"
           component={NewAlert}
           options={{
-            tabBarLabel: 'Alerts',
+            tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
-              <Ionicons name="bulb-outline" color={color} size={35} />
+              <Ionicons name="bulb" color={color} size={35} />
             ),
           }}
         />
@@ -60,9 +62,9 @@ export default function App() {
           name="Groups"
           component={GroupsMemberInvite}
           options={{
-            tabBarLabel: 'Groups',
+            tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
-              <Ionicons name="people-outline" color={color} size={35} />
+              <Ionicons name="people" color={color} size={35} />
             ),
           }}
         />
