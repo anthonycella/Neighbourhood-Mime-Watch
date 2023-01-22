@@ -21,7 +21,7 @@ function NewAlert(props) {
   }, []);
 
   const sampleGroups = [
-    {key: 1, value: 'Mount Pleasant'},
+    {key: 1, value: 'Mount Pleasant Building'},
     {key: 2, value: '4th Street Plaza'},
     {key: 3, value: 'Broken Dreams Boulevard'},
   ];

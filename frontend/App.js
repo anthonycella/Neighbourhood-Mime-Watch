@@ -1,11 +1,10 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import Logs from './screens/Logs';
-import NewAlert from './screens/NewAlert';
-import GroupsMain from './screens/GroupsMain';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Logs from './screens/Logs';
+import NewAlert from './screens/NewAlert';
+import GroupsMemberInvite from './screens/GroupsMemberInvite';
 
 const Tab = createBottomTabNavigator();
 
@@ -43,7 +42,7 @@ export default function App() {
         />
         <Tab.Screen
           name="Groups"
-          component={GroupsMain}
+          component={GroupsMemberInvite}
           options={{
             tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
@@ -55,13 +54,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    margin: 40,
-  },
-});

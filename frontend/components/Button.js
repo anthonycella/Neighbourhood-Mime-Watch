@@ -3,7 +3,6 @@ import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import colours from '../config/colours';
 
 function Button(props) {
-
   const styles = StyleSheet.create({
     button: {
       backgroundColor: props.colour,
@@ -13,12 +12,12 @@ function Button(props) {
       margin: 10,
       display: 'flex',
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
     },
     text: {
       fontSize: 24,
       fontWeight: 'bold',
-      color: colours.darkGrey
+      color: colours.darkGrey,
     },
   });
 
