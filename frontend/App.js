@@ -40,7 +40,8 @@ export default function App() {
       >
         <Tab.Screen
           name="Home"
-          component={Logs}
+          // component={Logs}
+          component={GroupsMemberInvite}
           options={{
             tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
