@@ -14,9 +14,7 @@ function NewAlert(props) {
   const [alertSent, setAlertSent] = useState(false);
   const [error, setError] = useState("")
 
-  useEffect(() => {
-    // axios get?
-  }, []);
+  const placeholderPhoneNumber = 1;
 
   const sampleGroups = [
     {key: 1, value: 'Mount Pleasant'},
