@@ -1,25 +1,25 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native-web';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native-web';
 
 const Separator = () => <View style={styles.separator} />;
 
 function Article(props) {
+  // add conditional that handles resolve status
+
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={props.onPress}>
       <View>
-        <Text style={styles.articleTitle}>Location</Text>
-        <Text style={styles.resolveDate}>resolved on DATE_HERE</Text>
+        <Text style={styles.articleTitle}>{props.location}</Text>
+        <Text style={styles.resolveDate}>resolved on {props.date}</Text>
       </View>
       <View style={styles.marginTop}>
-        <Text>
-          Paragraph describing the incident or something. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sed fermentum orci.
-        </Text>
+        <Text>{props.body}</Text>
       </View>
       <View>
-        <Text style={styles.neighborName}>Firstname Lastname</Text>
+        <Text style={styles.neighbourName}>{props.neighbourName}</Text>
       </View>
       <Separator />
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   alignRight: {
     textAlign: 'right',
   },
-  neighborName: {
+  neighbourName: {
     marginTop: '5%',
     textAlign: 'right',
     fontSize: 15,
