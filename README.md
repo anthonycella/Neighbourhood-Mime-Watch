@@ -1,4 +1,4 @@
-# Neighbourhood Grime Watch
+# Neighbourhood Mime Watch
 
 ## Inspiration
 About 17% of car accidents are caused by distracted driving every year, accounting for more than 1,000,000 accidents per year. The problem? Mimes. With NMW, you'll be able to keep suspicious mimes at bay in your neighborhood or any community you end up being a part of.
