@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { ScrollView } from 'react-native-web';
+import { StyleSheet } from 'react-native';
 import Button from '../components/Button';
 import Article from '../components/Article';
 import Header from '../components/Header';
 import colours from '../config/colours';
-import { ScrollView } from 'react-native-web';
 
-function Logs(props) {
+function Logs() {
   const [viewAlert, setViewAlert] = useState({});
 
   useEffect(() => {
