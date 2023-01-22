@@ -12,6 +12,8 @@
     "@expo/webpack-config": "^0.17.2",
     "@react-navigation/bottom-tabs": "^6.5.3",
     "@react-navigation/native": "^6.1.2",
+    "axios": "^1.2.3",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "@react-navigation/native-stack": "^6.9.8",
     "expo": "~47.0.12",
