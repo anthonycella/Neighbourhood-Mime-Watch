@@ -58,7 +58,7 @@ function NewAlert(props) {
           setSelected={val => setGroup(val)}
           data={sampleGroups}
           save="value"
-          label="group"
+          placeholder="group"
           boxStyles={{borderRadius: 0, borderTopWidth: 0, borderLeftWidth: 0, borderRightWidth: 0, borderColor: colours.lightGrey,  marginBottom: 10}}
           fontFamily="system-ui"
           inputStyles={{color: colours.black, fontSize: 24}}
@@ -75,7 +75,7 @@ function NewAlert(props) {
           buttonText="alert group"
           colour={colours.red}
         />
-        {error && <ErrorMessage text={error}/>}
+        {error ? <ErrorMessage text={error}/> : null}
       </>
       :
       <>
