@@ -4,12 +4,17 @@ import Button from '../components/Button';
 import Header from '../components/Header';
 import SmallButton from '../components/SmallButton';
 import colours from '../config/colours';
+import { TouchableOpacity } from 'react-native-web';
+import { useNavigation } from '@react-navigation/native';
+import StackNavigator from '../StackNavigator';
 
 export default function GroupsMain() {
-  
+
+  const navigation = useNavigation();
+
   useEffect(() => {
     // axios get?
-  })
+  });
 
   function handleAlert() {
 
@@ -31,7 +36,11 @@ export default function GroupsMain() {
         buttonText='create new group'
         colour={colours.green}
       />
-      <Header text='Mount Pleasant Building' />
+      <TouchableOpacity
+        onPress={() => navigation.navigate("green")}
+      >
+        <Header text='Mount Pleasant Building' />
+      </TouchableOpacity>
       <View style={styles.flex}>
         <SmallButton
           buttonText='edit name'

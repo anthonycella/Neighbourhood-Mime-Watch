@@ -5,11 +5,15 @@ import Header from '../components/Header';
 import TextInput2 from '../components/TextInput2';
 import colours from '../config/colours';
 import ErrorMessage from '../components/ErrorMessage';
+import { TouchableOpacity } from 'react-native-web';
+import { useNavigation } from '@react-navigation/native';
 
 export default function GroupsMemberInvite(props) {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [inviteSent, setInviteSent] = useState(false);
   const [error, setError] = useState("");
+
+  const navigation = useNavigation();
 
   function handleInvite() {
     if (!phoneNumber) {

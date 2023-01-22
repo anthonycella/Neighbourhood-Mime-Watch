@@ -15,6 +15,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 
+import StackNavigator from "./StackNavigator";
+
 const Tab = createBottomTabNavigator();
 
 // const tabBarBgColor = {
@@ -32,10 +34,10 @@ export default function App() {
       <Tab.Navigator
         screenOptions={{
           tabBarStyle: { height: 70 },
-          tabBarActiveBackgroundColor:'#A3BD7C',
-          tabBarInactiveBackgroundColor:'#9BB574',
-          tabBarActiveTintColor:'#D66363',
-          tabBarInactiveTintColor:'#E2E2E2',
+          tabBarActiveBackgroundColor: '#A3BD7C',
+          tabBarInactiveBackgroundColor: '#9BB574',
+          tabBarActiveTintColor: '#D66363',
+          tabBarInactiveTintColor: '#E2E2E2',
         }}
       >
         <Tab.Screen
