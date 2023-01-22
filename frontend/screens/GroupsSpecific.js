@@ -24,6 +24,46 @@ export default function GroupsSpecific(props) {
 
   }
 
+  const sampleLogs = [
+    {
+      id: 1,
+      content: "Hey guys- just saw someone trying to open door knobs throughout the 4th floor. Keep and eye out and be safe.",
+      user_reporting: "bongosincorporated",
+      date_created: "12/12/2022",
+      last_updated: "01/18/2023",
+      report_status: "resolved",
+      group: "Mount Pleasant Building"
+    },
+    {
+      id: 3,
+      content: "There's a mime blocking the road. I accidentally ran over it.",
+      user_reporting: "mauricemozzzzie",
+      date_created: "12/12/2022",
+      last_updated: "01/18/2023",
+      report_status: "ongoing",
+      group: "Mount Pleasant Building"
+    },
+    {
+      id: 4,
+      content: "Fire out of control at Moss's house, just got his email.",
+      user_reporting: "b1ackb3ard",
+      date_created: "12/12/2022",
+      last_updated: "01/18/2023",
+      report_status: "ongoing",
+      group: "Mount Pleasant Building"
+    }
+  ];
+
+  const logList = sampleLogs.map(log => {
+    return (
+      <Article
+        key={log.id}
+        log={log}
+        onPress={() => handleViewAlert(log)}
+      />
+    )
+  })
+
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => navigation.navigate("green")}>
@@ -39,24 +79,9 @@ export default function GroupsSpecific(props) {
         buttonText='Invite New Member'
         colour={colours.green}
       />
-      <Article
-        location='London Street'
-        date='01/22/2023'
-        body="I just met this girl late last year, she said 'Don't you worry if I disappear' and she actually disappeared. Her name was Nina."
-        neighborName='Ed Sheeran'
-      />
-      <Article
-        location='Broken Dreams Boulevard'
-        date='01/21/2023'
-        body="Walking down the only road I've ever known, and some guy was screaming that he's the son of rage and love or something. Stay safe!"
-        neighborName='Billie Joe Armstrong'
-      />
-      <Article
-        location='World of Juice'
-        date='01/20/2023'
-        body="Just saw a man sipping on some Hennessey who said I was his friend and that I'll turn into his enemy if I don't buy him another one."
-        neighborName='Jarad Higgins'
-      />
+      <View>
+        {logList}
+      </View>
     </View>
   );
 }

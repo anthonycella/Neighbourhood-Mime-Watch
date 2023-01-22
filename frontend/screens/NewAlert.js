@@ -7,6 +7,8 @@ import ErrorMessage from '../components/ErrorMessage';
 import { SelectList } from 'react-native-dropdown-select-list';
 import colours from '../config/colours';
 
+import { sendAlertToGroup } from '../twilio/twilio';
+
 function NewAlert(props) {
   const [group, setGroup] = useState("");
   const [activity, setActivity] = useState("");
@@ -35,6 +37,9 @@ function NewAlert(props) {
 
     // axios get and post?
     // twilio integration
+    const phoneNumbers = ['+19198255137'];
+    sendAlertToGroup(phoneNumbers);
+
     setAlertSent(true);
   }
 

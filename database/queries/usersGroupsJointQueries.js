@@ -51,6 +51,7 @@ const getUsersFromGroupId = (req, res) => {
 
   dbConnection.connect((error) => {
     if (error) {
+      console.log(error);
       console.log('Connection to database unsuccessful, from getUsersFromGroupId');
       res.status(404).send();
     } else {
