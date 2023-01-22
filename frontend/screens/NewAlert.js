@@ -8,6 +8,8 @@ import ErrorMessage from '../components/ErrorMessage';
 import { SelectList } from 'react-native-dropdown-select-list';
 import colours from '../config/colours';
 
+import { sendAlertToGroup } from '../../server/twilio/twilio';
+
 function NewAlert(props) {
   const [group, setGroup] = useState("");
   const [activity, setActivity] = useState("");
@@ -19,7 +21,7 @@ function NewAlert(props) {
   }, []);
 
   const sampleGroups = [
-    {key: 1, value: 'Mount Pleasant'},
+    {key: 1, value: 'Mount Pleasant Building'},
     {key: 2, value: '4th Street Plaza'},
     {key: 3, value: 'Broken Dreams Boulevard'},
   ];

@@ -1,4 +1,6 @@
 import { StyleSheet, View } from 'react-native';
+import axios from 'axios';
+import { ScrollView } from 'react-native-web';
 import React, { useEffect, useState } from 'react';
 import Button from '../components/Button';
 import Header from '../components/Header';
@@ -8,24 +10,45 @@ import Confirm from '../components/Confirm';
 import NameForm from '../components/NameForm';
 
 export default function GroupsMain() {
-  const [groupName, setGroupName] = useState("");
+  const [allGroups, setAllGroups] = useState([]);
+  const [groupName, setGroupName] = useState('');
   const [createGroup, setCreateGroup] = useState(false);
-  const [editGroupName, setEditGroupName] = useState("");
+  const [editGroupName, setEditGroupName] = useState('');
   const [deleteGroup, setDeleteGroup] = useState(false);
-  const [error, setError] = useState("");
-  
+  const [error, setError] = useState('');
+
   useEffect(() => {
-    // axios get?
-  }, [])
+    axios({
+      method: 'GET',
+      url: 'http://localhost:8000/groups/',
+      params: {
+        phoneNumber: '(919) 410-1939',
+      },
+    })
+      .then((data) => {
+        console.log('data: ', data.data);
+        setAllGroups(data.data);
+      })
+      .catch((err) => {
+        console.log('error: ', err.message);
+      })
+  }, []);
 
   function handleCreateGroup() {
     if (!groupName) {
       return setError("please enter a name");
     }
-    setGroupName("");
-    setError("");
-    // axios post
-    setCreateGroup(false);
+    setGroupName('');
+    setError('');
+    axios({
+      method: 'POST',
+      url: 'http://localhost:8000/groups/',
+      data: {
+        groupName,
+        dateCreated: new Date(),
+      },
+    });
+    return setCreateGroup(false);
   }
 
   function handleEditGroupName(group) {
@@ -36,9 +59,9 @@ export default function GroupsMain() {
     if (!groupName) {
       return setError("please enter a name");
     }
-    setError("");
+    setError('');
     // axios put
-    setGroupName("");
+    setGroupName('');
     setEditGroupName(false);
   }
 
@@ -47,8 +70,7 @@ export default function GroupsMain() {
       setDeleteGroup(true);
       return setGroupName(group);
     }
-    // axios delete
-    setGroupName("");
+    setGroupName('');
     setDeleteGroup(false);
   }
 
@@ -61,26 +83,11 @@ export default function GroupsMain() {
     setGroupName("");
   }
 
-  const sampleGroups = [
-    {
-      id: 1,
-      group: "Mount Pleasant Building" 
-    },
-    {
-      id: 2,
-      group: "4th Street Plaza" 
-    },
-    {
-      id: 3,
-      group: "Bat Cave Manor" 
-    },
-  ];
-
-  const groupList = sampleGroups.map(group => {
+  const groupList = allGroups.map(group => {
     return (
-      <View key={group.id}>
-        <Header text={group.group} />
-        {editGroupName === group.group ?
+      <View key={group.group_id}>
+        <Header text={group.group_name} />
+        {editGroupName === group.group_name ?
         <>
           <NameForm
             groupName={groupName}
@@ -92,21 +99,21 @@ export default function GroupsMain() {
           />
         </> : null}
 
-        {(editGroupName !== group.group && groupName !== group.group) ?
+        {(editGroupName !== group.group_name && groupName !== group.group_name) ?
         <View style={styles.flex}>
           <SmallButton
             buttonText='edit name'
             colour={colours.green}
-            onPress={() => handleEditGroupName(group.group)}
+            onPress={() => handleEditGroupName(group.group_name)}
           />
           <SmallButton
             buttonText='delete group'
             colour={colours.red}
-            onPress={() => handleDelete(group.group)}
+            onPress={() => handleDelete(group.group_name)}
           />
         </View> : null}
 
-        {(deleteGroup && groupName === group.group) ?
+        {(deleteGroup && groupName === group.group_name) ?
         <Confirm
           onBack={handleCancel}
           onDelete={handleDelete}
@@ -116,7 +123,7 @@ export default function GroupsMain() {
   })
 
   return (
-    <View>
+    <ScrollView>
       <View>
         <Header text='your groups' />
         {!createGroup ? 
@@ -138,7 +145,7 @@ export default function GroupsMain() {
         </>}
       </View>
       {groupList}
-    </View>
+    </ScrollView>
   );
 }
 
