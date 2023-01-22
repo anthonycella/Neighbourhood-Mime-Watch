@@ -5,6 +5,8 @@ const reportsQueries = require('../database/queries/reportsQueries');
 const usersQueries = require('../database/queries/usersQueries');
 const usersGroupsJointQueries = require('../database/queries/usersGroupsJointQueries');
 
+const twilio = require('./twilio/twilio');
+
 const app = express();
 const PORT = 3000;
 
@@ -48,6 +50,24 @@ app.post('/usersgroups', (req, res) => {
 
 app.post('/groups', (req, res) => {
   usersGroupsJointQueries.insertIntoGroupTable(req, res);
+});
+
+app.post('/twilio', (req, res) => {
+  const data = req.body;
+  const { phoneNumbers, alert } = data;
+
+  phoneNumbers.forEach((phoneNumber) => {
+    twilio.sendMessage(phoneNumber, alert, (error, result) => {
+      if (error) {
+        console.log(`Error, twilio failed to send message to ${phoneNumber}`);
+        console.log(error);
+        res.status(404).send();
+      } else {
+        console.log(`Success! Twillio successfully sent message to ${phoneNumber}`);
+        res.status(200).send(result);
+      }
+    });
+  });
 });
 
 app.listen(PORT);
