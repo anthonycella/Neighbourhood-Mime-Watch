@@ -29,7 +29,8 @@ export default function GroupsMain() {
   }
 
   function handleEditGroupName() {
-    setEditGroupName(true);
+    // axios put
+    setEditGroupName(false);
   }
 
   function handleDelete() {
@@ -58,7 +59,7 @@ export default function GroupsMain() {
         />
       }
       <Header text='Mount Pleasant Building' />
-      {editGroupName ? 
+      {editGroupName && 
       <NameForm
         groupName={groupName}
         setGroupName={setGroupName}
@@ -66,30 +67,25 @@ export default function GroupsMain() {
         redText="cancel"
         greenFunction={handleEditGroupName}
         redFunction={() => setEditGroupName(false)}
-      />
-      :
-      <>
-        {!deleteGroup ? 
-          <View style={styles.flex}>
-            <SmallButton
-              buttonText='edit name'
-              colour={colours.green}
-              onPress={() => setEditGroupName(true)}
-            />
-            <SmallButton
-              buttonText='delete group'
-              colour={colours.red}
-              onPress={() => setDeleteGroup(true)}
-            />
-          </View>
-          :
-          <Confirm
-            onBack={() => setDeleteGroup(false)}
-            onDelete={handleDelete}
-          />
-        }
-      </>
-      }
+      />}
+      {(!deleteGroup && !editGroupName) &&
+      <View style={styles.flex}>
+        <SmallButton
+          buttonText='edit name'
+          colour={colours.green}
+          onPress={() => setEditGroupName(true)}
+        />
+        <SmallButton
+          buttonText='delete group'
+          colour={colours.red}
+          onPress={() => setDeleteGroup(true)}
+        />
+      </View>}
+      {deleteGroup &&
+      <Confirm
+        onBack={() => setDeleteGroup(false)}
+        onDelete={handleDelete}
+      />}
     </View>
   );
 }
