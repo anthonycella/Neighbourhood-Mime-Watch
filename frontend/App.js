@@ -10,28 +10,41 @@ import GroupsMain from './screens/GroupsMain';
 import GroupsSpecific from './screens/GroupsSpecific';
 import GroupsMemberInvite from './screens/GroupsMemberInvite';
 
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome5';
 
 const Tab = createBottomTabNavigator();
 
+// const tabBarBgColor = {
+//   ...DefaultTheme,
+//   colors: {
+//     ...DefaultTheme.colors,
+//     background: 'orange'
+//   },
+// };
+
 export default function App() {
   return (
+    // <NavigationContainer theme={tabBarBgColor}>
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={{
           tabBarStyle: { height: 70 },
+          tabBarActiveBackgroundColor:'#A3BD7C',
+          tabBarInactiveBackgroundColor:'#9BB574',
+          tabBarActiveTintColor:'#D66363',
+          tabBarInactiveTintColor:'#E2E2E2',
         }}
       >
         <Tab.Screen
           name="Home"
           component={Logs}
           options={{
-            tabBarLabel: 'Home',
+            tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
-              <Ionicons name="document-outline" color={color} size={35} />
+              <Ionicons name="document" color={color} size={35} />
             ),
           }}
         />
@@ -39,19 +52,19 @@ export default function App() {
           name="Alerts"
           component={NewAlert}
           options={{
-            tabBarLabel: 'Alerts',
+            tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
-              <Ionicons name="bulb-outline" color={color} size={35} />
+              <Ionicons name="bulb" color={color} size={35} />
             ),
           }}
         />
         <Tab.Screen
           name="Groups"
-          component={GroupsMemberInvite}
+          component={GroupsMain}
           options={{
-            tabBarLabel: 'Groups',
+            tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
-              <Ionicons name="people-outline" color={color} size={35} />
+              <Ionicons name="people" color={color} size={35} />
             ),
           }}
         />
