@@ -27,6 +27,10 @@ function Logs(props) {
     setViewAlert(false);
   }
 
+  const sampleLogs = {
+    
+  }
+
   return (
     <View>
       {!viewAlert ? 

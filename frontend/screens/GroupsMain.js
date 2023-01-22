@@ -12,24 +12,35 @@ export default function GroupsMain() {
   const [createGroup, setCreateGroup] = useState(false);
   const [editGroupName, setEditGroupName] = useState(false);
   const [deleteGroup, setDeleteGroup] = useState(false);
+  const [error, setError] = useState("");
   
   useEffect(() => {
     // axios get?
   }, [])
 
   function handleCreateGroup() {
-    // axios post
+    if (!groupName) {
+      return setError("please enter a name");
+    }
     setGroupName("");
+    setError("");
+    // axios post
     setCreateGroup(false);
   }
 
   function handleCancelCreateGroup() {
     setGroupName("");
+    setError("");
     setCreateGroup(false);
   }
 
   function handleEditGroupName() {
+    if (!groupName) {
+      return setError("please enter a name");
+    }
+    setError("");
     // axios put
+    setGroupName("");
     setEditGroupName(false);
   }
 
@@ -38,17 +49,18 @@ export default function GroupsMain() {
     setDeleteGroup(false);
   }
 
-
   return (
     <View>
       <Header text='your groups' />
+
       {!createGroup ? 
-        <Button
-          onPress={() => setCreateGroup(true)}
-          buttonText='create new group'
-          colour={colours.green}
-        />
-        :
+      <Button
+        onPress={() => setCreateGroup(true)}
+        buttonText='create new group'
+        colour={colours.green}
+      />
+      :
+      <>
         <NameForm
           groupName={groupName}
           setGroupName={setGroupName}
@@ -57,18 +69,27 @@ export default function GroupsMain() {
           greenFunction={handleCreateGroup}
           redFunction={handleCancelCreateGroup}
         />
-      }
+      </>}
+      {/* {error &&
+      <Error text={error}/>} */}
+
       <Header text='Mount Pleasant Building' />
-      {editGroupName && 
-      <NameForm
-        groupName={groupName}
-        setGroupName={setGroupName}
-        greenText="save"
-        redText="cancel"
-        greenFunction={handleEditGroupName}
-        redFunction={() => setEditGroupName(false)}
-      />}
-      {(!deleteGroup && !editGroupName) &&
+
+      {editGroupName ?
+      <>
+        <NameForm
+          groupName={groupName}
+          setGroupName={setGroupName}
+          greenText="save"
+          redText="cancel"
+          greenFunction={handleEditGroupName}
+          redFunction={() => setEditGroupName(false)}
+        />
+      </> : null}
+      {/* {(error && editGroupName) &&
+      <Error text={error}/>} */}
+
+      {(!deleteGroup && !editGroupName) ?
       <View style={styles.flex}>
         <SmallButton
           buttonText='edit name'
@@ -80,12 +101,13 @@ export default function GroupsMain() {
           colour={colours.red}
           onPress={() => setDeleteGroup(true)}
         />
-      </View>}
-      {deleteGroup &&
+      </View> : null}
+
+      {deleteGroup ?
       <Confirm
         onBack={() => setDeleteGroup(false)}
         onDelete={handleDelete}
-      />}
+      /> : null}
     </View>
   );
 }
