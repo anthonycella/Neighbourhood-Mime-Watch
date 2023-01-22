@@ -18,7 +18,7 @@ function Button(props) {
     text: {
       fontSize: 24,
       fontWeight: 'bold',
-      color: colours.black
+      color: colours.darkGrey
     },
   });
 

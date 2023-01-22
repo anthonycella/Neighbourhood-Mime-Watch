@@ -19,7 +19,7 @@ function SmallButton(props) {
     text: {
       fontSize: 18,
       fontWeight: 'bold',
-      color: colours.black
+      color: colours.darkGrey
     },
   });
 
