@@ -113,7 +113,7 @@ function Logs() {
 
   return (
     <ScrollView>
-      {!viewAlert ? 
+      {!viewAlert ?
       <>
         <Header text='past alerts' />
         <ScrollView>
@@ -161,3 +161,51 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   }
 });
+
+  // const sampleLogs = [
+  //   {
+  //     id: 1,
+  //     content: "Hey guys- just saw someone trying to open door knobs throughout the 4th floor. Keep and eye out and be safe.",
+  //     user_reporting: "bongosincorporated",
+  //     date_created: "12/12/2022",
+  //     last_updated: "01/18/2023",
+  //     report_status: "resolved",
+  //     group: "Mount Pleasant Building"
+  //   },
+  //   {
+  //     id: 2,
+  //     content: "There's a weird creepy guy dressed in black spandex and a cape",
+  //     user_reporting: "theRizzler",
+  //     date_created: "12/12/2022",
+  //     last_updated: "01/18/2023",
+  //     report_status: "resolved",
+  //     group: "4th Street Plaza"
+  //   },
+  //   {
+  //     id: 3,
+  //     content: "There's a mime blocking the road. I accidentally ran over it.",
+  //     user_reporting: "mauricemozzzzie",
+  //     date_created: "12/12/2022",
+  //     last_updated: "01/18/2023",
+  //     report_status: "ongoing",
+  //     group: "Mount Pleasant Building"
+  //   },
+  //   {
+  //     id: 4,
+  //     content: "Fire out of control at Moss's house, just got his email.",
+  //     user_reporting: "b1ackb3ard",
+  //     date_created: "12/12/2022",
+  //     last_updated: "01/18/2023",
+  //     report_status: "ongoing",
+  //     group: "Mount Pleasant Building"
+  //   },
+  //   {
+  //     id: 5,
+  //     content: "HELLO..... I SAW SOME SUSSCPICIOUS ACTIVITY BY THE BACK ENTRACNCE T",
+  //     user_reporting: "meemaw",
+  //     date_created: "12/12/2022",
+  //     last_updated: "01/18/2023",
+  //     report_status: "resolved",
+  //     group: "4th Street Plaza"
+  //   }
+  // ];

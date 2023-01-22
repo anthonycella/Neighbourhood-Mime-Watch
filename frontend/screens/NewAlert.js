@@ -16,9 +16,19 @@ function NewAlert(props) {
   const [alertSent, setAlertSent] = useState(false);
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    // axios get?
-  }, []);
+  const placeholderPhoneNumber = '(912) 059-9119';
+  const placeholderId = 5;
+
+  axios({
+    method: 'get',
+    url: 'http://localhost:8000/groups/',
+    params: {
+      phoneNumber: placeholderPhoneNumber,
+    },
+  })
+    .then((results) => {
+      console.log(results);
+    });
 
   const sampleGroups = [
     {key: 1, value: 'Mount Pleasant Building'},
@@ -39,11 +49,11 @@ function NewAlert(props) {
     // axios get and post?
     // twilio integration
     const phoneNumbersToText = ['+19198255137'];
-    const placeholderMessage = 'Hello. My name is Inigo Montoya. You kill my father. Prepare to die.';
+    // const placeholderMessage = 'Hello. My name is Inigo Montoya. You kill my father. Prepare to die.';
 
     const data = {
       phoneNumbers: phoneNumbersToText,
-      alert: placeholderMessage,
+      alert: activity,
     };
 
     const config = {

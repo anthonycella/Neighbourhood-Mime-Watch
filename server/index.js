@@ -21,6 +21,10 @@ app.get('/reports', (req, res) => {
   reportsQueries.getReportsFromGroupId(req, res);
 });
 
+app.get('/reports/all', (req, res) => {
+  usersGroupsJointQueries.getReportsOfAllGroupsOfUser(req, res);
+});
+
 app.post('/reports', (req, res) => {
   reportsQueries.insertIntoReports(req, res);
 });
