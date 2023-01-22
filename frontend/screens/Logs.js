@@ -1,20 +1,127 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import Button from '../components/Button';
 import Article from '../components/Article';
 import Header from '../components/Header';
+import colours from '../config/colours';
+import { ScrollView } from 'react-native-web';
 
 function Logs(props) {
+  const [viewAlert, setViewAlert] = useState({});
+
+  useEffect(() => {
+    // axios get request
+  }, [])
+
+  function handleViewAlert(log) {
+    setViewAlert(log);
+  }
+
+  function handleBack() {
+    setViewAlert(false);
+  }
+
+  function handleStatusChange() {
+    // axios put request
+    setViewAlert(false);
+  }
+
+  const sampleLogs = [
+    {
+      id: 1,
+      content: "Hey guys- just saw someone trying to open door knobs throughout the 4th floor. Keep and eye out and be safe.",
+      user_reporting: "bongosincorporated",
+      date_created: "12/12/2022",
+      last_updated: "01/18/2023",
+      report_status: "resolved",
+      group: "Mount Pleasant Building"
+    },
+    {
+      id: 2,
+      content: "There's a weird creepy guy dressed in black spandex and a cape",
+      user_reporting: "theRizzler",
+      date_created: "12/12/2022",
+      last_updated: "01/18/2023",
+      report_status: "resolved",
+      group: "4th Street Plaza"
+    },
+    {
+      id: 3,
+      content: "There's a mime blocking the road. I accidentally ran over it.",
+      user_reporting: "mauricemozzzzie",
+      date_created: "12/12/2022",
+      last_updated: "01/18/2023",
+      report_status: "ongoing",
+      group: "Mount Pleasant Building"
+    },
+    {
+      id: 4,
+      content: "Fire out of control at Moss's house, just got his email.",
+      user_reporting: "b1ackb3ard",
+      date_created: "12/12/2022",
+      last_updated: "01/18/2023",
+      report_status: "ongoing",
+      group: "Mount Pleasant Building"
+    },
+    {
+      id: 5,
+      content: "HELLO..... I SAW SOME SUSSCPICIOUS ACTIVITY BY THE BACK ENTRACNCE T",
+      user_reporting: "meemaw",
+      date_created: "12/12/2022",
+      last_updated: "01/18/2023",
+      report_status: "resolved",
+      group: "4th Street Plaza"
+    }
+  ];
+
+  const logList = sampleLogs.map(log => {
+    return (
+      <Article
+        key={log.id}
+        log={log}
+        onPress={() => handleViewAlert(log)}
+      />
+    )
+  })
 
   return (
-    <View>
-      <View style={styles.top}>
+    <ScrollView>
+      {!viewAlert ? 
+      <>
         <Header text="past alerts" />
-        <Button buttonText="alert group"/>
-        <Button buttonText="create new group"/>
-      </View>
-      <Article />
-    </View>
+        <ScrollView>
+          {logList}
+          {/* <Article
+            location="mp"
+            date="12/12/2022"
+            body="hahaha"
+            neighbourName="johnny b"
+            onPress={handleViewAlert}
+          /> */}
+        </ScrollView>
+      </>
+      :
+      <>
+        <Button
+          buttonText="back to alerts"
+          colour={colours.green}
+          onPress={handleBack}
+        />
+        <Article
+          log={viewAlert}
+        />
+        <Button
+          buttonText="mark resolved"
+          colour={colours.green}
+          onPress={handleStatusChange}
+        />
+        <Button
+          buttonText="mark ongoing"
+          colour={colours.yellow}
+          onPress={handleStatusChange}
+        />
+      </>}
+    </ScrollView>
   );
 }
 
@@ -23,6 +130,7 @@ export default Logs;
 const styles = StyleSheet.create({
   top: {
     display: 'flex',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
+    alignItems: 'center'
   }
 });
