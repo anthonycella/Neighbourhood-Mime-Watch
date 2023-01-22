@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { View } from 'react-native-web';
+import axios from 'axios';
 import TextInput2 from '../components/TextInput2';
 import Button from '../components/Button';
 import Header from '../components/Header';
 import ErrorMessage from '../components/ErrorMessage'
 import { SelectList } from 'react-native-dropdown-select-list'
 import colours from '../config/colours';
-
-import { sendAlertToGroup } from '../twilio/twilio';
 
 function NewAlert(props) {
   const [group, setGroup] = useState("");
@@ -17,15 +16,15 @@ function NewAlert(props) {
 
   useEffect(() => {
     // axios get?
-  }, [])
+  }, []);
 
   const sampleGroups = [
-    {key: '1', value: 'Mount Pleasant'},
-    {key: '2', value: '4th Street Plaza'},
-    {key: '3', value: 'Broken Dreams Boulevard'}
-  ]
+    {key: 1, value: 'Mount Pleasant'},
+    {key: 2, value: '4th Street Plaza'},
+    {key: 3, value: 'Broken Dreams Boulevard'},
+  ];
 
-  function handleAlertGroup() {
+  function handleAlertGroup(groupNumber) {
     setError("");
 
     if (!group) {
@@ -37,8 +36,37 @@ function NewAlert(props) {
 
     // axios get and post?
     // twilio integration
-    const phoneNumbers = ['+19198255137'];
-    sendAlertToGroup(phoneNumbers);
+    const phoneNumbersToText = ['+19198255137'];
+    const placeholderMessage = 'Hello. My name is Inigo Montoya. You kill my father. Prepare to die.';
+
+    const data = {
+      phoneNumbers: phoneNumbersToText,
+      alert: placeholderMessage,
+    };
+
+    const config = {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
+    };
+
+    const url = 'http://localhost:8000/twilio';
+
+    axios.post(url, data, config)
+      .then((result) => console.log('text success!'))
+      .catch((error) => console.log(error));
+
+    // axios({
+    //   method: 'post',
+    //   url: 'http://localhost:8000/twilio',
+    //   data: {
+    //     phoneNumbers: phoneNumbersToText,
+    //     alert: placeholderMessage,
+    //   },
+    //   headers: {
+    //     'Access-Control-Allow-Origin': '*',
+    //   },
+    // });
 
     setAlertSent(true);
   }
