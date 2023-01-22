@@ -31,4 +31,19 @@ Having a comment section for each report Being able to upload images to reports
 
 ## Screenshots
 ### Invite new member to group
-![Screenshot](https://i.imgur.com/XdKGnO9.png)
+<img src="https://i.imgur.com/XdKGnO9.png" width="400">
+
+### Alerts
+<img src="https://i.imgur.com/CXJMrPe.png" width="400">
+
+### Invite new member - success
+<img src="https://i.imgur.com/ByAprUr.png" width="400">
+
+### Specific alert
+<img src="https://i.imgur.com/iCoHze9.png" width="400">
+
+### Creating an alert
+<img src="https://i.imgur.com/iJISUh0.png" width="400">
+
+### Creating an alert 0 success
+<img src="https://i.imgur.com/ae5j1tn.png" width="400">
