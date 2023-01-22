@@ -1,58 +1,96 @@
 import { StyleSheet, Text, View } from 'react-native';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '../components/Button';
 import Header from '../components/Header';
 import SmallButton from '../components/SmallButton';
 import colours from '../config/colours';
+import Confirm from '../components/Confirm';
+import NameForm from '../components/NameForm';
 
 export default function GroupsMain() {
+  const [groupName, setGroupName] = useState("");
+  const [createGroup, setCreateGroup] = useState(false);
+  const [editGroupName, setEditGroupName] = useState(false);
+  const [deleteGroup, setDeleteGroup] = useState(false);
   
   useEffect(() => {
     // axios get?
-  })
+  }, [])
 
-  function handleAlert() {
-
+  function handleCreateGroup() {
+    // axios post
+    setGroupName("");
+    setCreateGroup(false);
   }
 
-  function handleCreate() {
-
+  function handleCancelCreateGroup() {
+    setGroupName("");
+    setCreateGroup(false);
   }
+
+  function handleEditGroupName() {
+    // axios put
+    setEditGroupName(false);
+  }
+
+  function handleDelete() {
+    // axios delete
+    setDeleteGroup(false);
+  }
+
 
   return (
-    <View style={styles.container}>
-      <Button
-        onPress={handleAlert}
-        buttonText='alert group'
-        colour={colours.red}
-      />
-      <Button
-        onPress={handleCreate}
-        buttonText='create new group'
-        colour={colours.green}
-      />
+    <View>
+      <Header text='your groups' />
+      {!createGroup ? 
+        <Button
+          onPress={() => setCreateGroup(true)}
+          buttonText='create new group'
+          colour={colours.green}
+        />
+        :
+        <NameForm
+          groupName={groupName}
+          setGroupName={setGroupName}
+          greenText="create"
+          redText="cancel"
+          greenFunction={handleCreateGroup}
+          redFunction={handleCancelCreateGroup}
+        />
+      }
       <Header text='Mount Pleasant Building' />
+      {editGroupName && 
+      <NameForm
+        groupName={groupName}
+        setGroupName={setGroupName}
+        greenText="save"
+        redText="cancel"
+        greenFunction={handleEditGroupName}
+        redFunction={() => setEditGroupName(false)}
+      />}
+      {(!deleteGroup && !editGroupName) &&
       <View style={styles.flex}>
         <SmallButton
           buttonText='edit name'
           colour={colours.green}
+          onPress={() => setEditGroupName(true)}
         />
         <SmallButton
           buttonText='delete group'
           colour={colours.red}
+          onPress={() => setDeleteGroup(true)}
         />
-      </View>
+      </View>}
+      {deleteGroup &&
+      <Confirm
+        onBack={() => setDeleteGroup(false)}
+        onDelete={handleDelete}
+      />}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-  },
   flex: {
     display: 'flex',
     flexDirection: 'row',
