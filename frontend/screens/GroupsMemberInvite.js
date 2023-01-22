@@ -7,10 +7,10 @@ import TextInput2 from '../components/TextInput2';
 import colours from '../config/colours';
 import ErrorMessage from '../components/ErrorMessage';
 
-export default function GroupsMemberInvite() {
-  const [phoneNumber, setPhoneNumber] = useState('');
+export default function GroupsMemberInvite(props) {
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [inviteSent, setInviteSent] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   function handleInvite() {
     if (!phoneNumber) {

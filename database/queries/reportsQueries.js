@@ -61,7 +61,7 @@ const updateReportStatus = (req, res) => {
 };
 
 const getReportsFromGroupId = (req, res) => {
-  const data = req.body;
+  const data = req.query;
 
   const timestamp = new Date();
 

@@ -4,8 +4,8 @@ import axios from 'axios';
 import TextInput2 from '../components/TextInput2';
 import Button from '../components/Button';
 import Header from '../components/Header';
-import ErrorMessage from '../components/ErrorMessage'
-import { SelectList } from 'react-native-dropdown-select-list'
+import ErrorMessage from '../components/ErrorMessage';
+import { SelectList } from 'react-native-dropdown-select-list';
 import colours from '../config/colours';
 
 import { sendAlertToGroup } from '../../server/twilio/twilio';
@@ -14,7 +14,7 @@ function NewAlert(props) {
   const [group, setGroup] = useState("");
   const [activity, setActivity] = useState("");
   const [alertSent, setAlertSent] = useState(false);
-  const [error, setError] = useState("")
+  const [error, setError] = useState("");
 
   useEffect(() => {
     // axios get?

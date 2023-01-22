@@ -14,10 +14,10 @@ export default function App() {
       <Tab.Navigator
         screenOptions={{
           tabBarStyle: { height: 70 },
-          tabBarActiveBackgroundColor:'#A3BD7C',
-          tabBarInactiveBackgroundColor:'#9BB574',
-          tabBarActiveTintColor:'#D66363',
-          tabBarInactiveTintColor:'#E2E2E2',
+          tabBarActiveBackgroundColor: '#A3BD7C',
+          tabBarInactiveBackgroundColor: '#9BB574',
+          tabBarActiveTintColor: '#D66363',
+          tabBarInactiveTintColor: '#E2E2E2',
         }}
       >
         <Tab.Screen
@@ -26,7 +26,7 @@ export default function App() {
           options={{
             tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
-              <Ionicons name="document" color={color} size={35} />
+              <Ionicons name="newspaper" color={color} size={35} />
             ),
           }}
         />
@@ -54,3 +54,18 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+// ------ UNCOMMENT BELOW/ABOVE THIS LINE
+
+// import React from "react";
+// import { StyleSheet, Text, View, Button } from "react-native";
+// import { NavigationContainer } from "@react-navigation/native";
+// import StackNavigator from "./StackNavigator";
+
+// export default function App() {
+//   return (
+//     <NavigationContainer>
+//       <StackNavigator />
+//     </NavigationContainer>
+//   );
+// }
