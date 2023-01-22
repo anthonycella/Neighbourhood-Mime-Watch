@@ -7,7 +7,7 @@ import ErrorMessage from '../components/ErrorMessage'
 import { SelectList } from 'react-native-dropdown-select-list'
 import colours from '../config/colours';
 
-import { sendAlertToGroup } from '../twilio/twilio';
+import { sendAlertToGroup } from '../../server/twilio/twilio';
 
 function NewAlert(props) {
   const [group, setGroup] = useState("");

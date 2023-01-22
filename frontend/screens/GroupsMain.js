@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Button from '../components/Button';
 import Header from '../components/Header';
@@ -8,15 +9,18 @@ import Confirm from '../components/Confirm';
 import NameForm from '../components/NameForm';
 
 export default function GroupsMain() {
-  const [groupName, setGroupName] = useState("");
+  const [groupName, setGroupName] = useState('');
   const [createGroup, setCreateGroup] = useState(false);
   const [editGroupName, setEditGroupName] = useState(false);
   const [deleteGroup, setDeleteGroup] = useState(false);
-  const [error, setError] = useState("");
-  
+  const [error, setError] = useState('');
+
   useEffect(() => {
-    // axios get?
-  }, [])
+    axios.get('/groups')
+      .then((data) => {
+        console.log('data: ', data);
+      });
+  }, []);
 
   function handleCreateGroup() {
     if (!groupName) {
