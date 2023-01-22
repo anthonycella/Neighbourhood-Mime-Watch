@@ -47,41 +47,40 @@ function NewAlert(props) {
   return (
     <View>
       {!alertSent ?
-        <>
-          <Header text="create new alert" />
-          <SelectList
-            setSelected={val => setGroup(val)}
-            data={sampleGroups}
-            save="value"
-            label="group"
-            boxStyles={{ borderRadius: 0, borderTopWidth: 0, borderLeftWidth: 0, borderRightWidth: 0, borderColor: colours.lightGrey, marginBottom: 10 }}
-            fontFamily="system-ui"
-            inputStyles={{ color: colours.black, fontSize: 24 }}
-          />
-          <TextInput2
-            height={300}
-            multiline={true}
-            placeholder="what's the activity?"
-            value={activity}
-            onChangeText={setActivity}
-          />
-          <Button
-            // onPress={handleAlertGroup}
-            onPress={() => navigation.navigate("red")}
-            buttonText="alert group"
-            colour={colours.red}
-          />
-          {error && <ErrorMessage text={error} />}
-        </>
-        :
-        <>
-          <Header text={`${group} has been alerted.`} />
-          <Button
-            onPress={handleBack}
-            buttonText="create new alert"
-            colour={colours.green}
-          />
-        </>}
+      <>
+        <Header text="create new alert"/>
+        <SelectList
+          setSelected={val => setGroup(val)}
+          data={sampleGroups}
+          save="value"
+          placeholder="group"
+          boxStyles={{borderRadius: 0, borderTopWidth: 0, borderLeftWidth: 0, borderRightWidth: 0, borderColor: colours.lightGrey,  marginBottom: 10}}
+          fontFamily="system-ui"
+          inputStyles={{color: colours.black, fontSize: 24}}
+        />
+        <TextInput2
+          height={300}
+          multiline={true}
+          placeholder="what's the activity?"
+          value={activity}
+          onChangeText={setActivity}
+        />
+        <Button
+          onPress={handleAlertGroup}
+          buttonText="alert group"
+          colour={colours.red}
+        />
+        {error ? <ErrorMessage text={error}/> : null}
+      </>
+      :
+      <>
+        <Header text={`${group} has been alerted.`}/>
+        <Button
+        onPress={handleBack}
+        buttonText="create new alert"
+        colour={colours.green}
+        />
+      </>}
     </View>
   );
 }

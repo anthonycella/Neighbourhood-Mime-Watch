@@ -4,18 +4,17 @@ import Button from '../components/Button';
 import Article from '../components/Article';
 import Header from '../components/Header';
 import colours from '../config/colours';
+import { ScrollView } from 'react-native-web';
 
 function Logs(props) {
-  // this is a boolean for now but will change to empty object once backend is done
-  const [viewAlert, setViewAlert] = useState(false);
+  const [viewAlert, setViewAlert] = useState({});
 
   useEffect(() => {
     // axios get request
   }, [])
 
-  function handleViewAlert() {
-    //
-    setViewAlert(true);
+  function handleViewAlert(log) {
+    setViewAlert(log);
   }
 
   function handleBack() {
@@ -27,20 +26,79 @@ function Logs(props) {
     setViewAlert(false);
   }
 
+  const sampleLogs = [
+    {
+      id: 1,
+      content: "Hey guys- just saw someone trying to open door knobs throughout the 4th floor. Keep and eye out and be safe.",
+      user_reporting: "bongosincorporated",
+      date_created: "12/12/2022",
+      last_updated: "01/18/2023",
+      report_status: "resolved",
+      group: "Mount Pleasant Building"
+    },
+    {
+      id: 2,
+      content: "There's a weird creepy guy dressed in black spandex and a cape",
+      user_reporting: "theRizzler",
+      date_created: "12/12/2022",
+      last_updated: "01/18/2023",
+      report_status: "resolved",
+      group: "4th Street Plaza"
+    },
+    {
+      id: 3,
+      content: "There's a mime blocking the road. I accidentally ran over it.",
+      user_reporting: "mauricemozzzzie",
+      date_created: "12/12/2022",
+      last_updated: "01/18/2023",
+      report_status: "ongoing",
+      group: "Mount Pleasant Building"
+    },
+    {
+      id: 4,
+      content: "Fire out of control at Moss's house, just got his email.",
+      user_reporting: "b1ackb3ard",
+      date_created: "12/12/2022",
+      last_updated: "01/18/2023",
+      report_status: "ongoing",
+      group: "Mount Pleasant Building"
+    },
+    {
+      id: 5,
+      content: "HELLO..... I SAW SOME SUSSCPICIOUS ACTIVITY BY THE BACK ENTRACNCE T",
+      user_reporting: "meemaw",
+      date_created: "12/12/2022",
+      last_updated: "01/18/2023",
+      report_status: "resolved",
+      group: "4th Street Plaza"
+    }
+  ];
+
+  const logList = sampleLogs.map(log => {
+    return (
+      <Article
+        key={log.id}
+        log={log}
+        onPress={() => handleViewAlert(log)}
+      />
+    )
+  })
+
   return (
-    <View>
+    <ScrollView>
       {!viewAlert ? 
       <>
         <Header text="past alerts" />
-        <View>
-          <Article
+        <ScrollView>
+          {logList}
+          {/* <Article
             location="mp"
             date="12/12/2022"
             body="hahaha"
             neighbourName="johnny b"
             onPress={handleViewAlert}
-          />
-        </View>
+          /> */}
+        </ScrollView>
       </>
       :
       <>
@@ -50,10 +108,7 @@ function Logs(props) {
           onPress={handleBack}
         />
         <Article
-          location="mp"
-          date="12/12/2022"
-          body="hahaha"
-          neighbourName="johnny b"
+          log={viewAlert}
         />
         <Button
           buttonText="mark resolved"
@@ -66,7 +121,7 @@ function Logs(props) {
           onPress={handleStatusChange}
         />
       </>}
-    </View>
+    </ScrollView>
   );
 }
 

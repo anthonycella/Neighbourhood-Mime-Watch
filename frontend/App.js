@@ -29,7 +29,6 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    // <NavigationContainer theme={tabBarBgColor}>
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={{
@@ -73,24 +72,6 @@ export default function App() {
         />
       </Tab.Navigator>
     </NavigationContainer>
-
-    // <View style={styles.container}>
-    //   {/* <Logs /> */}
-    //   {/* <LoginSignup /> */}
-    //   {/* <SmallButton buttonText='edit name'/>
-    //   <SmallButton buttonText='delete group'/> */}
-    //   {/* <GroupsMain /> */}
-    //   {/* <GroupsSpecific /> */}
-    //   {/* <GroupsMemberInvite /> */}
-    //   {/* <Logs />
-    //   <LoginSignup />
-    //   <SmallButton buttonText='edit name' />
-    //   <SmallButton buttonText='delete group' /> */}
-    //   {/* <Navbar /> */}
-    //   <NavigationContainer>
-    //     <Tabs />
-    //   </NavigationContainer>
-    // </View>
   );
 }
 
