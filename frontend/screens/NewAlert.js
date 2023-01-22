@@ -4,8 +4,8 @@ import axios from 'axios';
 import TextInput2 from '../components/TextInput2';
 import Button from '../components/Button';
 import Header from '../components/Header';
-import ErrorMessage from '../components/ErrorMessage'
-import { SelectList } from 'react-native-dropdown-select-list'
+import ErrorMessage from '../components/ErrorMessage';
+import { SelectList } from 'react-native-dropdown-select-list';
 import colours from '../config/colours';
 
 function NewAlert(props) {
@@ -14,7 +14,19 @@ function NewAlert(props) {
   const [alertSent, setAlertSent] = useState(false);
   const [error, setError] = useState("")
 
-  const placeholderPhoneNumber = 1;
+  const placeholderPhoneNumber = '(912) 059-9119';
+  const placeholderId = 5;
+
+  axios({
+    method: 'get',
+    url: 'http://localhost:8000/groups/',
+    params: {
+      phoneNumber: placeholderPhoneNumber,
+    },
+  })
+    .then((results) => {
+      console.log(results);
+    });
 
   const sampleGroups = [
     {key: 1, value: 'Mount Pleasant'},

@@ -131,10 +131,37 @@ const insertIntoGroupTable = (req, res) => {
   });
 };
 
+const getReportsOfAllGroupsOfUser = (req, res) => {
+  const data = req.query;
+
+  const { phoneNumber } = data;
+
+  const retrievalQuery = `SELECT * FROM reports WHERE group_id IN (SELECT group_id FROM users_groups WHERE phone_number = "${phoneNumber}")`;
+
+  dbConnection.connect((error) => {
+    if (error) {
+      console.log('Connection to database unsuccessful, from getReportsOfAllGroupsOfUser');
+      res.status(404).send();
+    } else {
+      dbConnection.query(retrievalQuery, (errorInQuery, result) => {
+        if (errorInQuery) {
+          console.log('error in query: getReportsOfAllGroupsOfUser');
+          console.log(errorInQuery);
+          res.status(404).send();
+        } else {
+          console.log('Success! Entry successfully loaded into the neighbourhood_watch_groups table');
+          res.status(200).send(result);
+        }
+      });
+    }
+  });
+};
+
 module.exports = {
   insertIntoJointTable,
   getPhoneNumbersFromGroupId,
   getUsersFromGroupId,
   getGroupsFromPhoneNumber,
   insertIntoGroupTable,
+  getReportsOfAllGroupsOfUser,
 };
