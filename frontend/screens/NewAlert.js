@@ -19,12 +19,12 @@ function NewAlert(props) {
   }, []);
 
   const sampleGroups = [
-    {key: '1', value: 'Mount Pleasant'},
-    {key: '2', value: '4th Street Plaza'},
-    {key: '3', value: 'Broken Dreams Boulevard'}
-  ]
+    {key: 1, value: 'Mount Pleasant'},
+    {key: 2, value: '4th Street Plaza'},
+    {key: 3, value: 'Broken Dreams Boulevard'},
+  ];
 
-  function handleAlertGroup() {
+  function handleAlertGroup(groupNumber) {
     setError("");
 
     if (!group) {

@@ -60,7 +60,37 @@ const updateReportStatus = (req, res) => {
   });
 };
 
+const getReportsFromGroupId = (req, res) => {
+  const data = req.body;
+
+  const timestamp = new Date();
+
+  const { groupId } = data;
+
+  const retrievalQuery = `SELECT * FROM reports WHERE group_id = ${groupId}`;
+
+  dbConnection.connect((error) => {
+    if (error) {
+      console.log('Connection to database unsuccessful, from getReportsFromGroupId');
+      console.log(error);
+      res.status(404).send();
+    } else {
+      dbConnection.query(retrievalQuery, (errorInQuery, result) => {
+        if (errorInQuery) {
+          console.log('error in query: getReportsFromGroupId');
+          console.log(errorInQuery);
+          res.status(404).send();
+        } else {
+          console.log(`Success! all reports retrieved from group ${groupId}`);
+          res.status(200).send(result);
+        }
+      });
+    }
+  });
+};
+
 module.exports = {
   insertIntoReports,
   updateReportStatus,
+  getReportsFromGroupId,
 };
