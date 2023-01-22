@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, TouchableOpacity } from 'react-native';
 import colours from '../config/colours';
 
 function SmallButton(props) {
@@ -24,9 +24,9 @@ function SmallButton(props) {
   });
 
   return (
-    <View style={styles.button}>
+    <TouchableOpacity style={styles.button} onPress={props.onPress}>
       <Text style={styles.text}>{props.buttonText}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 
