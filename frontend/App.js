@@ -32,6 +32,8 @@ export default function App() {
       <Tab.Navigator
         screenOptions={{
           tabBarStyle: { height: 70 },
+          tabBarActiveBackgroundColor:'#A3BD7C',
+          tabBarInactiveBackgroundColor:'#9BB574',
         }}
       >
         <Tab.Screen
