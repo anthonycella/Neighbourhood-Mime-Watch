@@ -1,11 +1,10 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import Logs from './screens/Logs';
-import NewAlert from './screens/NewAlert';
-import GroupsMain from './screens/GroupsMain';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Logs from './screens/Logs';
+import NewAlert from './screens/NewAlert';
+import GroupsMemberInvite from './screens/GroupsMemberInvite';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,10 +14,10 @@ export default function App() {
       <Tab.Navigator
         screenOptions={{
           tabBarStyle: { height: 70 },
-          tabBarActiveBackgroundColor:'#A3BD7C',
-          tabBarInactiveBackgroundColor:'#9BB574',
-          tabBarActiveTintColor:'#D66363',
-          tabBarInactiveTintColor:'#E2E2E2',
+          tabBarActiveBackgroundColor: '#A3BD7C',
+          tabBarInactiveBackgroundColor: '#9BB574',
+          tabBarActiveTintColor: '#D66363',
+          tabBarInactiveTintColor: '#E2E2E2',
         }}
       >
         <Tab.Screen
@@ -27,7 +26,7 @@ export default function App() {
           options={{
             tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
-              <Ionicons name="document" color={color} size={35} />
+              <Ionicons name="newspaper" color={color} size={35} />
             ),
           }}
         />
@@ -43,7 +42,7 @@ export default function App() {
         />
         <Tab.Screen
           name="Groups"
-          component={GroupsMain}
+          component={GroupsMemberInvite}
           options={{
             tabBarLabel: '',
             tabBarIcon: ({ color, size }) => (
@@ -56,12 +55,17 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    margin: 40,
-  },
-});
+// ------ UNCOMMENT BELOW/ABOVE THIS LINE
+
+// import React from "react";
+// import { StyleSheet, Text, View, Button } from "react-native";
+// import { NavigationContainer } from "@react-navigation/native";
+// import StackNavigator from "./StackNavigator";
+
+// export default function App() {
+//   return (
+//     <NavigationContainer>
+//       <StackNavigator />
+//     </NavigationContainer>
+//   );
+// }

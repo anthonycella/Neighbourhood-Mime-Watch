@@ -6,10 +6,13 @@ import colours from '../config/colours';
 const Separator = () => <View style={styles.separator} />;
 
 function Article(props) {
+  console.log(props.log)
+
   return (
     <TouchableOpacity style={styles.container} onPress={props.onPress}>
       <View>
-        <Text style={styles.group}>{props.log.group}</Text>
+        {/* <Text style={styles.group}>{props.log.group}</Text> */}
+        <Text style={styles.group}>Mount Pleasant Building</Text>
         <View style={styles.status}>
           <Text style={styles.report_status}>{props.log.report_status} as of {props.log.last_updated}</Text>
           {props.log.report_status === "resolved" ?
@@ -53,7 +56,6 @@ const styles = StyleSheet.create({
   report_status: {
     fontSize: 20,
     fontStyle: 'italic',
-    marginRight: 5
   },
   marginTop: {
     marginTop: '5%',

@@ -5,12 +5,16 @@ import Header from '../components/Header';
 import SmallButton from '../components/SmallButton';
 import Article from '../components/Article';
 import colours from '../config/colours';
+import { TouchableOpacity } from 'react-native-web';
+import { useNavigation } from '@react-navigation/native';
 
 export default function GroupsSpecific(props) {
 
+  const navigation = useNavigation();
+
   useEffect(() => {
     // axios get
-  }, [])
+  }, []);
 
   function handleAlert() {
 
@@ -62,7 +66,9 @@ export default function GroupsSpecific(props) {
 
   return (
     <View style={styles.container}>
-      <Header text='Mount Pleasant Building' />
+      <TouchableOpacity onPress={() => navigation.navigate("green")}>
+        <Header text='Mount Pleasant Building' />
+      </TouchableOpacity>
       <Button
         onPress={handleAlert}
         buttonText='Alert Group'

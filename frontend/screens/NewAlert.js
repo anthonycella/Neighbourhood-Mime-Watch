@@ -8,11 +8,13 @@ import ErrorMessage from '../components/ErrorMessage';
 import { SelectList } from 'react-native-dropdown-select-list';
 import colours from '../config/colours';
 
+import { sendAlertToGroup } from '../../server/twilio/twilio';
+
 function NewAlert(props) {
   const [group, setGroup] = useState("");
   const [activity, setActivity] = useState("");
   const [alertSent, setAlertSent] = useState(false);
-  const [error, setError] = useState("")
+  const [error, setError] = useState("");
 
   const placeholderPhoneNumber = '(912) 059-9119';
   const placeholderId = 5;
@@ -29,7 +31,7 @@ function NewAlert(props) {
     });
 
   const sampleGroups = [
-    {key: 1, value: 'Mount Pleasant'},
+    {key: 1, value: 'Mount Pleasant Building'},
     {key: 2, value: '4th Street Plaza'},
     {key: 3, value: 'Broken Dreams Boulevard'},
   ];
