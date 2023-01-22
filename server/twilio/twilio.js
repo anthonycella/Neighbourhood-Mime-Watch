@@ -14,6 +14,10 @@ const sendingNumber = TWILIO_PHONE_NUMBER;
 const client = require("twilio")(accountSid, authToken);
 
 const sendMessage = (phoneNumber, messageToSend, callback) => {
+  console.log({ phoneNumber });
+  console.log({ accountSid });
+  console.log({ authToken });
+  console.log({ sendingNumber });
   client.messages
     .create({ body: messageToSend, from: sendingNumber, to: phoneNumber })
     .then((message) => {
