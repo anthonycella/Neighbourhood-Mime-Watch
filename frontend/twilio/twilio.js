@@ -3,8 +3,17 @@
 // Read more at http://twil.io/secure
 const accountSid = "ACab8838dc57a57564af7736ed9aed94a6";
 const authToken = process.env.TWILIO_AUTH_TOKEN;
+const sendingNumber = process.env.TWILIO_PHONE_NUMBER;
 const client = require("twilio")(accountSid, authToken);
 
-client.messages
-  .create({ body: "Hello from Twilio", from: "+18126134475", to: "+19198255137" })
-  .then(message => console.log(message.sid));
+const sendMessage = (phoneNumber, messageToSend) => {
+  client.messages
+    .create({ body: messageToSend, from: sendingNumber, to: phoneNumber })
+    .then(message => console.log(message.sid));
+};
+
+const sendAlertToGroup = (phoneNumbers, messageToSend) => {
+  phoneNumbers.forEach((phoneNumber) => sendMessage(phoneNumber, messageToSend));
+};
+
+module.exports = sendAlertToGroup;
