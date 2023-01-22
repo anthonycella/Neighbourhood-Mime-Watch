@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import { NativeRouter, Route, Link } from "react-router-native";
 import Button from '../components/Button';
 import Header from '../components/Header';
 import SmallButton from '../components/SmallButton';
@@ -117,7 +116,7 @@ export default function GroupsMain() {
   })
 
   return (
-    <NativeRouter>
+    <View>
       <View>
         <Header text='your groups' />
         {!createGroup ? 
@@ -139,7 +138,7 @@ export default function GroupsMain() {
         </>}
       </View>
       {groupList}
-    </NativeRouter>
+    </View>
   );
 }
 
