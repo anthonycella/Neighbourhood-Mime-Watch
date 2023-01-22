@@ -47,11 +47,11 @@ function NewAlert(props) {
     // axios get and post?
     // twilio integration
     const phoneNumbersToText = ['+19198255137'];
-    const placeholderMessage = 'Hello. My name is Inigo Montoya. You kill my father. Prepare to die.';
+    // const placeholderMessage = 'Hello. My name is Inigo Montoya. You kill my father. Prepare to die.';
 
     const data = {
       phoneNumbers: phoneNumbersToText,
-      alert: placeholderMessage,
+      alert: activity,
     };
 
     const config = {
