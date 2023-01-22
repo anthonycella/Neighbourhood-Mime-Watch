@@ -36,18 +36,18 @@ function LoginSignup(props) {
   return (
     <View style={styles.center}>
       <Header text="neighbourhood grime watch" />
-      {logIn &&
+      {logIn ?
         <>
           <TextInput2 placeholder="email" />
           <TextInput2 placeholder="password" />
-        </>}
-      {signUp &&
+        </> : null}
+      {signUp ?
       <>
         <TextInput2 placeholder="email"/>
         <TextInput2 placeholder="password"/>
         <TextInput2 placeholder="name"/>
         <TextInput2 placeholder="phone number"/>
-      </>}
+      </> : null}
       <Button
         onPress={handleLogIn}
         buttonText="log in"
