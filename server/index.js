@@ -1,5 +1,5 @@
 const express = require('express');
-const path = require('path');
+const cors = require('cors');
 
 const reportsQueries = require('../database/queries/reportsQueries');
 const usersQueries = require('../database/queries/usersQueries');
@@ -12,6 +12,7 @@ const PORT = 8000;
 
 app.use(express.json());
 app.use(express.urlencoded());
+app.use(cors());
 
 // for connecting to the front-end
 // app.use(express.static(path.join(__dirname, '../CLIENTSIDE_DIRECTORY_PATH_GOES_HERE')));
