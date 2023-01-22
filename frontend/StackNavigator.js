@@ -15,8 +15,8 @@ const StackNavigator = () => {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Group>
         <Stack.Screen name="groupsMain" component={GroupsMain} />
-        <Stack.Screen name="groupsMemberInvite" component={GroupsMemberInvite} />
         <Stack.Screen name="red" component={ScreenRed} />
+        <Stack.Screen name="groupsMemberInvite" component={GroupsMemberInvite} />
         <Stack.Screen name="groupsSpecific" component={GroupsSpecific} />
         <Stack.Screen name="green" component={ScreenGreen} />
         <Stack.Screen name="newAlert" component={NewAlert} />
