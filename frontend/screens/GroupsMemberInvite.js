@@ -7,9 +7,9 @@ import colours from '../config/colours';
 import ErrorMessage from '../components/ErrorMessage';
 
 export default function GroupsMemberInvite(props) {
-  const [phoneNumber, setPhoneNumber] = useState("")
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [inviteSent, setInviteSent] = useState(false);
-  const [error, setError] = useState("")
+  const [error, setError] = useState("");
 
   function handleInvite() {
     if (!phoneNumber) {
@@ -28,29 +28,30 @@ export default function GroupsMemberInvite(props) {
   return (
     <View>
       {!inviteSent ?
-      <View style={styles.sendInvite}>
-        <Header text='Mount Pleasant Building' />
-        <TextInput2
-          laceholder="phone number"
-          value={phoneNumber}
-          onChangeText={setPhoneNumber}
-        />
-        <Button
-          onPress={handleInvite}
-          buttonText='invite new member'
-          colour={colours.green}
-        />
-        <ErrorMessage text={error}/>
-      </View>
-      :
-      <View style={styles.inviteSent}>
-        <Header text={`${phoneNumber} is now able to receive text alerts for Mount Pleasant Building.`} />
-        <Button
-          onPress={handleBack}
-          buttonText='Back to group'
-          colour={colours.green}
-        />
-      </View>}
+        <View style={styles.sendInvite}>
+          <Header text='Mount Pleasant Building' />
+          <TextInput2
+            laceholder="phone number"
+            value={phoneNumber}
+            onChangeText={setPhoneNumber}
+          />
+          <Button
+            onPress={handleInvite}
+            buttonText='invite new member'
+            colour={colours.green}
+          />
+          <ErrorMessage text={error} />
+        </View>
+        :
+        <View style={styles.inviteSent}>
+          <Header text={`${phoneNumber} is now able to receive text alerts for Mount Pleasant Building.`} />
+          <Button
+            // onPress={handleBack}
+            onPress={() => navigation.navigate("newAlert")}
+            buttonText='Back to group'
+            colour={colours.green}
+          />
+        </View>}
     </View>
   );
 }
