@@ -5,11 +5,15 @@ import Header from '../components/Header';
 import TextInput2 from '../components/TextInput2';
 import colours from '../config/colours';
 import ErrorMessage from '../components/ErrorMessage';
+import { TouchableOpacity } from 'react-native-web';
+import { useNavigation } from '@react-navigation/native';
 
 export default function GroupsMemberInvite(props) {
-  const [phoneNumber, setPhoneNumber] = useState("")
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [inviteSent, setInviteSent] = useState(false);
-  const [error, setError] = useState("")
+  const [error, setError] = useState("");
+
+  const navigation = useNavigation();
 
   function handleInvite() {
     if (!phoneNumber) {
@@ -28,29 +32,30 @@ export default function GroupsMemberInvite(props) {
   return (
     <View>
       {!inviteSent ?
-      <View style={styles.sendInvite}>
-        <Header text='Mount Pleasant Building' />
-        <TextInput2
-          laceholder="phone number"
-          value={phoneNumber}
-          onChangeText={setPhoneNumber}
-        />
-        <Button
-          onPress={handleInvite}
-          buttonText='invite new member'
-          colour={colours.green}
-        />
-        <ErrorMessage text={error}/>
-      </View>
-      :
-      <View style={styles.inviteSent}>
-        <Header text={`${phoneNumber} is now able to receive text alerts for Mount Pleasant Building.`} />
-        <Button
-          onPress={handleBack}
-          buttonText='Back to group'
-          colour={colours.green}
-        />
-      </View>}
+        <View style={styles.sendInvite}>
+          <Header text='Mount Pleasant Building' />
+          <TextInput2
+            laceholder="phone number"
+            value={phoneNumber}
+            onChangeText={setPhoneNumber}
+          />
+          <Button
+            onPress={handleInvite}
+            buttonText='invite new member'
+            colour={colours.green}
+          />
+          <ErrorMessage text={error} />
+        </View>
+        :
+        <View style={styles.inviteSent}>
+          <Header text={`${phoneNumber} is now able to receive text alerts for Mount Pleasant Building.`} />
+          <Button
+            // onPress={handleBack}
+            onPress={() => navigation.navigate("newAlert")}
+            buttonText='Back to group'
+            colour={colours.green}
+          />
+        </View>}
     </View>
   );
 }
