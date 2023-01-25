@@ -29,6 +29,22 @@ Having a comment section for each report Being able to upload images to reports
 - react-native
 - twilio
 
+## Start-Up Guide
+1. Clone down the repository
+- open a terminal window and run the following command
+```git clone https://github.com/anthonycella/Neighbourhood-Mime-Watch```
+2. Start up the server
+- navigate to the repository and run this command
+```npm run server-dev```
+3. Start up the client
+- open a second terminal window and navigate to the repository
+- run the following commands
+```cd frontend```
+```npm start```
+4. Open up your browser and navigate to localhost port 3000
+```http://localhost:3000/```
+5. Enjoy!
+
 ## Screenshots
 ### Invite new member to group
 <img src="https://i.imgur.com/XdKGnO9.png" width="400">
